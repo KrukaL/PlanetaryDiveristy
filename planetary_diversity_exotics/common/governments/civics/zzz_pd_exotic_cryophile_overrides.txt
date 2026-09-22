@@ -1,4 +1,4 @@
-# Blocks origins and civics that would force an incompatible homeworld on Cryophile (CRYO) species. Each block duplicates vanilla with one added CRYO exclusion in possible.
+# Cryophile (CRYO) origin and civic gating. Each block duplicates vanilla with one CRYO change in possible: an exclusion where the pick would force an incompatible homeworld, or an inclusion where Cryophiles qualify.
 # Source: vanilla, except origin_red_giant and origin_cosmic_dawn which are sourced from PD main's override to preserve PD's planet type additions and removals.
 
 # Origin overrides.
@@ -712,4 +712,146 @@ civic_idyllic_bloom = {
 		add_attunement_the_composer_of_strands = @civic_attunement1
 	}
 	hide_modifiers = yes
+}
+
+civic_tankbound = {
+	playable = { has_shroud_dlc = yes }
+	ai_playable = { has_shroud_dlc = yes }
+	description = "civic_tankbound_effects"
+	negative_description = "civic_tankbound_negative_effects"
+
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+		civics = { NOT = { value = civic_tankbound_corporate } }
+	}
+	possible = {
+		origin = {
+			NOR = {
+				value = origin_broken_shackles
+				value = origin_payback
+				value = origin_toxic_knights
+				value = origin_clone_army
+				value = origin_primal_calling
+				value = origin_syncretic_evolution
+				value = origin_unplugged
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_mining_guilds
+				value = civic_anglers
+				value = civic_agrarian_idyll
+				value = civic_citizen_service
+				value = civic_slaver_guilds
+				value = civic_tankbound_corporate
+			}
+		}
+		species_class = {
+			OR = {
+				text = tankbound_species_class_requirement
+				value = NECROID
+				value = TOX
+				value = AQUATIC
+				value = INF
+				value = CRYO
+			}
+		}
+	}
+
+	alternate_civic_version = civic_tankbound_corporate
+	modification = {
+		add = {
+			hidden_trigger = {
+				has_civic = civic_tankbound_corporate
+			}
+		}
+		remove = {
+			always = no
+		}
+	}
+
+	traits = {
+		trait = trait_tankbound
+	}
+	modifier = {
+		planet_automated_jobs_upkeep_mult = @civic_tankbound_job_upkeep
+		job_farmer_automated_workforce_mult = 1.0
+		job_miner_automated_workforce_mult = 1.0
+		job_technician_automated_workforce_mult = 1.0
+	}
+
+	random_weight = { base = @civic_default_random_weight }
+}
+
+civic_tankbound_corporate = {
+	playable = { has_shroud_dlc = yes }
+	ai_playable = { has_shroud_dlc = yes }
+	description = "civic_tankbound_corporate_effects"
+	negative_description = "civic_tankbound_negative_effects"
+
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		OR = {
+			authority = { value = auth_corporate }
+			civics = { value = civic_galactic_sovereign_megacorp }
+		}
+		civics = { NOT = { value = civic_tankbound } }
+	}
+	possible = {
+		origin = {
+			NOR = {
+				value = origin_broken_shackles
+				value = origin_payback
+				value = origin_toxic_knights
+				value = origin_clone_army
+				value = origin_primal_calling
+				value = origin_syncretic_evolution
+				value = origin_unplugged
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_corporate_anglers
+				value = civic_indentured_assets
+				value = civic_private_military_companies
+				value = civic_tankbound
+			}
+		}
+		species_class = {
+			OR = {
+				text = tankbound_species_class_requirement
+				value = NECROID
+				value = TOX
+				value = AQUATIC
+				value = INF
+				value = CRYO
+			}
+		}
+	}
+
+	alternate_civic_version = civic_tankbound
+	modification = {
+		add = {
+			hidden_trigger = {
+				has_civic = civic_tankbound
+			}
+		}
+		remove = {
+			always = no
+		}
+	}
+
+	traits = {
+		trait = trait_tankbound
+	}
+
+	modifier = {
+		planet_automated_jobs_upkeep_mult = @civic_tankbound_job_upkeep
+		job_farmer_automated_workforce_mult = 1.0
+		job_miner_automated_workforce_mult = 1.0
+		job_technician_automated_workforce_mult = 1.0
+	}
+
+	random_weight = { base = @civic_default_random_weight }
 }

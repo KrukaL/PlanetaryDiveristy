@@ -1,0 +1,301 @@
+miner = {
+	category = worker
+	swappable_data = {
+		default = {
+			icon = miner
+			condition_string = WORKER_JOB_TRIGGER
+			building_icon = building_mineral_purification_plant
+		}
+		swap_type = {
+			trigger = {
+				miner_is_scrap_miner_trigger = yes
+			}
+			name = scrap_miner
+			desc = scrap_miner
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				miner_is_cave_cleaner_trigger = yes
+			}
+			name = cave_cleaner
+			desc = cave_cleaner
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				miner_is_turtle_miner_trigger = yes
+			}
+			name = turtle_miner
+			desc = turtle_miner
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				miner_is_crystal_miner_trigger = yes
+			}
+			icon = crystal_miner
+			name = crystal_miner
+			desc = crystal_miner
+			building_icon = building_crystal_mines
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				miner_is_thermoforger_trigger = yes
+			}
+			icon = miner
+			name = melt_extractor
+			desc = melt_extractor
+			weight = 35
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_cave = yes
+				num_zones = { type = zone_pd_cave_mine value > 0 }
+			}
+			name = pd_cave_karst_delver
+			desc = job_pd_cave_karst_delver_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_glaciovolcanic
+				num_zones = { type = zone_pd_glaciovolcanic_mine value > 0 }
+			}
+			name = pd_glaciovolcanic_tephra_quarrier
+			desc = job_pd_glaciovolcanic_tephra_quarrier_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_mine value > 0 }
+			}
+			name = pd_lanthanide_miner
+			desc = job_pd_lanthanide_miner_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_megaflora
+				num_zones = { type = zone_pd_megaflora_mine value > 0 }
+			}
+			name = pd_megaflora_rootbreaker
+			desc = job_pd_megaflora_rootbreaker_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_petrified
+				num_zones = { type = zone_pd_petrified_mine value > 0 }
+			}
+			name = pd_petrified_fossil_quarrier
+			desc = job_pd_petrified_fossil_quarrier_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_primal
+				num_zones = { type = zone_pd_primal_mine value > 0 }
+			}
+			name = pd_primal_bonebed_quarrier
+			desc = job_pd_primal_bonebed_quarrier_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_mine value > 0 }
+			}
+			name = pd_reef_coral_harvester
+			desc = job_pd_reef_coral_harvester_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_salt
+				num_zones = { type = zone_pd_salt_mine value > 0 }
+			}
+			name = pd_salt_harvester
+			desc = job_pd_salt_harvester_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_mine value > 0 }
+			}
+			name = pd_sinkhole_quarrier
+			desc = job_pd_sinkhole_quarrier_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_storm
+				num_zones = { type = zone_pd_storm_mine value > 0 }
+			}
+			name = pd_storm_stormbed_quarrier
+			desc = job_pd_storm_stormbed_quarrier_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+	}
+
+	tags = { minerals strategic_resource }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 4
+		}
+		# Job Swap - Scrap Miners
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_scrap_miner_trigger = yes
+				}
+			}
+			minerals = -2
+			alloys = 1
+		}
+		# Job Swap - Cave Cleaners
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_cave_cleaner_trigger = yes
+				}
+			}
+			minerals = 2
+		}
+		# Job Swap - Turtle
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_turtle_miner_trigger = yes
+				}
+			}
+			minerals = -1
+			food = 3
+		}
+		produces = {
+			trigger = {
+				has_carrier_flag = has_material_requisitorium
+			}
+			minerals = @requisitorium_minerals_reduction
+		}
+		# Job Swap - Thermoforger
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			minerals = 1
+			alloys = 0.5
+		}
+		upkeep = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			energy = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		# Gives some Stability per "Mining Guild" Councilor level.
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_mining_guilds" }
+		}
+		planet_stability_add = @councilor_mining_guilds_miner_stability
+		mult = value:councilor_level|TYPE|councilor_mining_guilds|
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_minerals
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_material_requisitorium
+				}
+			}
+			minerals = @requisitorium_minerals_overlord
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			can_take_servant_job = no
+			NOT = { has_slavery_type = { type = slavery_indentured } }
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				is_non_sapient_robot = yes
+				is_shackled_robot = yes
+			}
+			can_take_servant_job = no
+			owner = { has_technology = tech_droid_workers }
+		}
+		modifier = {
+			factor = 200
+			OR = {
+				is_non_sapient_robot = yes
+				is_shackled_robot = yes
+			}
+			can_take_servant_job = no
+			owner = { NOT = { has_technology = tech_droid_workers } }
+		}
+		modifier = {
+			factor = 0.25
+			can_take_servant_job = yes
+		}
+
+		modifier = {
+			factor = 5
+			has_trait = trait_cyborg_creed_of_labor
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
+
+}

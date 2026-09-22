@@ -1058,7 +1058,10 @@ district_hive = {
 	potential = {
 		exists = owner
 		owner = {
-			is_hive_empire = yes
+			OR = {
+				is_hive_empire = yes
+				is_country_type = swarm
+			}
 			is_wilderness_empire = no
 		}
 		OR = {
@@ -1297,6 +1300,7 @@ district_hive_2 = {
 		district_mining
 		district_hollow_mountains
 		district_ark_military
+		district_ark_forever_cruise
 	}
 
 	resources = {
@@ -1478,7 +1482,10 @@ district_nexus = {
 	potential = {
 		exists = owner
 		owner = {
-			is_machine_empire = yes
+			OR = {
+				is_machine_empire = yes
+				is_country_type = ai_empire
+			}
 		}
 		OR = {
 			uses_district_set = standard
@@ -1706,6 +1713,7 @@ district_nexus_2 = {
 		district_mining
 		district_hollow_mountains
 		district_ark_military
+		district_ark_forever_cruise
 	}
 
 	resources = {

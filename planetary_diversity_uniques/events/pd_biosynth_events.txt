@@ -1,6 +1,6 @@
 namespace = pdbiosynth
 
-#This event fires when you first survey the Biosynthic world
+#This event fires when you first survey the Biosynthetic world
 ship_event = {
 	id = pdbiosynth.100
 	title = pdbiosynth.100.name

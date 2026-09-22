@@ -1,0 +1,188 @@
+calculator_engineer = {
+	category = complex_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_research_lab_1
+			icon = engineer
+		}
+		#Brain Drone Engineer - auth_hive
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_engineer
+			desc = brain_drone_engineer
+			icon = brain_drone_engineer
+			building_icon = building_research_lab_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_engineer
+			desc = evosymbiont
+			icon = brain_drone_engineer
+			building_icon = brain_node_3
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 10
+		}
+		# Nanotech Researcher
+		swap_type = {
+			trigger = {
+				engineer_is_nanotech_researcher_trigger = yes
+			}
+			name = nanotech_research_unit
+			desc = nanotech_research_unit
+			building_icon = building_nanolab_1
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_cave = yes
+				num_zones = { type = zone_pd_cave_lab value > 0 }
+			}
+			name = pd_cave_speleo_engineer_drone
+			desc = job_pd_cave_speleo_engineer_drone_desc
+			icon = engineer
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_geothermal
+				num_zones = { type = zone_pd_geothermal_lab value > 0 }
+			}
+			name = pd_geothermal_geologist_drone
+			desc = job_pd_geothermal_geologist_drone_desc
+			icon = engineer
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_petrified
+				num_zones = { type = zone_pd_petrified_lab value > 0 }
+			}
+			name = pd_petrified_lithoglyph_scholar_drone
+			desc = job_pd_petrified_lithoglyph_scholar_drone_desc
+			icon = engineer
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_salt
+				num_zones = { type = zone_pd_salt_lab value > 0 }
+			}
+			name = pd_salt_halophile_engineer_drone
+			desc = job_pd_salt_halophile_engineer_drone_desc
+			icon = engineer
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+	}
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { can_think = yes }
+
+	resources = {
+		category = planet_engineers
+		produces = {
+			engineering_research = 3
+		}
+		produces = {
+			trigger = {
+				engineer_is_nanotech_researcher_trigger = yes
+			}
+			engineering_research = 1
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+				has_carrier_flag = has_science_ministry
+			}
+			energy = 1
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+			}
+			minerals = 4
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+				has_carrier_flag = has_science_ministry
+			}
+			minerals = 1.5
+		}
+		upkeep = {
+			trigger = {
+				engineer_is_nanotech_researcher_trigger = yes
+			}
+			nanites = 1
+		}
+	}
+
+	# Caregiver Paragon Effect
+	triggered_planet_modifier = {
+		potential = {
+			leader? = {
+				has_trait = leader_trait_nomadic_caregiver
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 150
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Amenities
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_active_tradition = tr_discovery_faith_in_science }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	inline_script = "jobs/academia_recruiter_naval_cap_add"
+
+	inline_script = "jobs/inf_navalcap_jobs"
+
+	weight = {
+		weight = @complex_drone_job_weight
+		mult = value:scripted_job_weight_shroud_forged_mult
+		modifier = {
+			factor = 0.9
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+}

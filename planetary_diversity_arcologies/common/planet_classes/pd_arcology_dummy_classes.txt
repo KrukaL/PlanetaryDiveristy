@@ -2,7 +2,7 @@
 # These are dummy classes and are not to be used, they are just for reference for the engine to turn them into the correct class.
 # Used in terraforming, and on game start.
 
-###Fortreess Arcology
+###Fortress Arcology
 pc_pd_fortress_city = {
 	entity = "pd_fortress_city_planet"
 	entity_scale = @planet_standard_scale

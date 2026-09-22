@@ -9,7 +9,7 @@
 @terraforming_duration_level_4 = 7200 #<-- special terraforming, e.g. to gaia, machine world etc.
 @terraforming_duration_gaia = 3600
 
-#Bareen
+#Barren
 #Regular
 terraform_link = {
 	from = pc_pd_domed_colony_toxic

@@ -25,4 +25,28 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/pdbiosnyth.dds"
 		alwaystransparent = yes
 	}
+	#Bonefield
+	spriteType = {
+		name = "GFX_evt_pd_bonefield"
+		texturefile = "gfx/event_pictures/pdbonefield.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_pd_bonefield_nomask"
+		texturefile = "gfx/event_pictures/pdbonefield.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_pd_bonefield_surface"
+		texturefile = "gfx/event_pictures/pdbonefield2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_pd_bonefield_fall"
+		texturefile = "gfx/event_pictures/pdbonefield3.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
 }

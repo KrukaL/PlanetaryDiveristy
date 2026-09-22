@@ -3,6 +3,7 @@
 # Core Cryophile trait; gates pd_ammonia_atmosphere, livestock_cryophile, and the cryo job variants.
 trait_cryophile = {
 	cost = 0
+	opposites = { "trait_organic" }
 	icon = "gfx/interface/icons/traits/trait_cryophile.dds"
 	species_potential_add = { always = no }
 	species_possible_remove = { always = no }
@@ -36,10 +37,7 @@ trait_cryophile = {
 		}
 		upkeep = {
 			trigger = {
-				OR = {
-					has_trait = trait_cybernetic
-					has_trait = trait_limited_cybernetic
-				}
+				has_trait = trait_cybernetic
 				is_being_purged = no
 				is_sapient = yes
 			}

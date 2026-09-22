@@ -1,0 +1,16 @@
+# whale_* are the regular tiyanki meshes at normal size; the elder carcass is a scaled copy so it reads as a rare big one.
+pd_tiyanki_bonefield_belt = {
+	mesh="whale_mesh"
+	mesh="whale_mesh"
+	mesh="whale_red_mesh"
+	mesh="whale_red_mesh"
+	mesh="whale_orange_mesh"
+	mesh="whale_orange_mesh"
+	mesh="whale_albino_mesh"
+	mesh="whale_albino_mesh"
+	mesh="pd_bonefield_elder_carcass_mesh"
+	mesh="asteroid_shatter_mesh"
+	mesh="asteroid_01_mesh"
+	width = 5
+	density = 0.55
+}

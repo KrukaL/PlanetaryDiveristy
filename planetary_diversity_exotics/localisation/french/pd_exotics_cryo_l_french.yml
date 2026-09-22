@@ -8,3 +8,5 @@
  decision_pd_exotic_domed_add_atmosphere_desc: "Réaménagez les dômes de la colonie avec notre atmosphère cryogénique afin que les nôtres puissent s'y installer. Une fois l'air modifié, seules les espèces adaptées au froid extrême pourront vivre sous les dômes."
  decision_pd_exotic_domed_remove_atmosphere: "Purger les dômes"
  decision_pd_exotic_domed_remove_atmosphere_desc: "Évacuez l'atmosphère cryogénique des dômes et remplacez-la par un mélange d'oxygène conventionnel. Les espèces cryogéniques ne pourront plus s'y installer."
+
+ tankbound_species_class_requirement: "A une classe d'espèce ayant un portrait ['trait:trait_tankbound'] :\n$t$$BULLET_POINT$§Y$AQUATIC$§!\n$t$$BULLET_POINT$§Y$CRYO$§!\n$t$$BULLET_POINT$§Y$INF$§!\n$t$$BULLET_POINT$§Y$NECROID$§!\n$t$$BULLET_POINT$§Y$TOX$§!"

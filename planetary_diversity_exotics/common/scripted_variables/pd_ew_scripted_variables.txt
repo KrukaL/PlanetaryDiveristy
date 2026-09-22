@@ -1,2 +1,2 @@
-#For mod compatability
+#For mod compatibility
 @has_planetary_diversity_exotic_worlds = 1

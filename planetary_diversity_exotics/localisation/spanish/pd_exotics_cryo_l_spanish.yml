@@ -8,3 +8,5 @@
  decision_pd_exotic_domed_add_atmosphere_desc: "Reacondiciona las cúpulas de la colonia con nuestra atmósfera criogénica para que los nuestros puedan asentarse aquí. Una vez que cambie el aire, solo las especies adaptadas al frío extremo podrán vivir bajo las cúpulas."
  decision_pd_exotic_domed_remove_atmosphere: "Ventilar las cúpulas"
  decision_pd_exotic_domed_remove_atmosphere_desc: "Expulsa la atmósfera criogénica de las cúpulas y la reemplaza por una mezcla de oxígeno convencional. Las especies criogénicas ya no podrán asentarse aquí."
+
+ tankbound_species_class_requirement: "Posee una clase de especie con un retrato de ['trait:trait_tankbound']:\n$t$$BULLET_POINT$§Y$AQUATIC$§!\n$t$$BULLET_POINT$§Y$CRYO$§!\n$t$$BULLET_POINT$§Y$INF$§!\n$t$$BULLET_POINT$§Y$NECROID$§!\n$t$$BULLET_POINT$§Y$TOX$§!"

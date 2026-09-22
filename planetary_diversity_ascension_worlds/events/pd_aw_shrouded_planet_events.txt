@@ -89,7 +89,7 @@ planet_event = {
 	}
 }
 
-# This event changes arcologies after the change effect has hapepens
+# This event changes arcologies after the change effect has happens
 planet_event = {
 	id = pdshroudplanets.201
 	hide_window = yes
@@ -192,7 +192,7 @@ planet_event = {
 	}
 }
 
-# This event changes arcologies after the change effect has hapepens
+# This event changes arcologies after the change effect has happens
 planet_event = {
 	id = pdshroudplanets.206
 	hide_window = yes
@@ -323,7 +323,7 @@ planet_event = {
 	}
 }
 
-# This event changes arcologies after the change effect has hapepens
+# This event changes arcologies after the change effect has happens
 planet_event = {
 	id = pdshroudplanets.401
 	hide_window = yes

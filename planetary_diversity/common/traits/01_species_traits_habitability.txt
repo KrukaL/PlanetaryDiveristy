@@ -5,9 +5,9 @@
 # ideal_planet_class = pc_desert # Must be set and match an existing planet class or the trait will not be treated as a habitability trait.
 # Those traits that create one to one relation between the trait and species ideal planet class can be considered as habitability traits.
 # Note that only one habitability trait can be assigned to a species because habitability traits are mutually exclusive.
-# Aside from having proper habitability traits, which define ideal_planet_class for species, there is also a posibility to define bound_to_planet_classes entry for a trait.
+# Aside from having proper habitability traits, which define ideal_planet_class for species, there is also a possibility to define bound_to_planet_classes entry for a trait.
 # That entry can contain a list of planet classes and that will allow to create a logical connection between the trait and listed planet classes. So f.e. when in empire editor
-# a home planet is selected for the species that cannot have 'ideal planet class' an additional search for the trait that is bound to plannet classes happens. If such trait is
+# a home planet is selected for the species that cannot have 'ideal planet class' an additional search for the trait that is bound to planet classes happens. If such trait is
 # found it is added to the species. Bound to the planet classes traits works mostly the same way as habitability traits, but they don't set ideal_planet_class for species.
 ####################
 
@@ -18,6 +18,7 @@
 @tertiary = 0.20
 @machine_primary = 0.75
 @machine_secondary = 0.50
+@machine_tertiary = 0.25
 @ark_primary = 0.50
 
 trait_pc_ai_preference = {
@@ -69,6 +70,9 @@ trait_pc_volcanic_preference = {
 	species_potential_add = {
 		can_change_habitability_preference = yes
 	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
+	}
 	modifier = {
 		pc_volcanic_habitability = @secondary # only 60% because origins, civics and traits add more
 		pc_desert_habitability = @secondary
@@ -95,6 +99,7 @@ trait_pc_volcanic_preference = {
 
 trait_pc_nuked_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_nuked_preference.dds"
+	short_name = "trait_pc_nuked_preference_short"
 	species_potential_add = {
 		always = no
 	}
@@ -143,6 +148,7 @@ trait_pc_nuked_preference = {
 }
 trait_pc_gaia_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_gaia_preference.dds"
+	short_name = "trait_pc_gaia_preference_short"
 	species_potential_add = {
 		always = no
 	}
@@ -296,8 +302,11 @@ trait_pc_habitat_preference = {
 			has_origin = origin_void_dwellers
 		}
 	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
+	}
 	species_possible_merge_add = {
-		always = yes
+		can_take_non_ocean_planet_preference = yes
 	}
 	species_possible_remove = {
 		NOT = { has_trait = trait_void_dweller_1 }
@@ -527,6 +536,7 @@ trait_dry_planet_preference = {
 		pc_pd_cold_cave_habitability = @machine_secondary
 		pc_pd_cold_gaia_habitability = @machine_secondary
 
+		pc_volcanic_habitability = @machine_tertiary
 	}
 	ai_weight = {
 		weight = 0
@@ -642,6 +652,7 @@ trait_wet_planet_preference = {
 		pc_pd_cold_cave_habitability = @machine_secondary
 		pc_pd_cold_gaia_habitability = @machine_secondary
 
+		pc_volcanic_habitability = @machine_tertiary
 	}
 	ai_weight = {
 		weight = 0
@@ -723,6 +734,8 @@ trait_cold_planet_preference = {
 		pc_pd_wet_tidally_locked_habitability = @machine_secondary
 		pc_pd_wet_cave_habitability = @machine_secondary
 		pc_pd_wet_gaia_habitability = @machine_secondary
+
+		pc_volcanic_habitability = @machine_tertiary
 	}
 	ai_weight = {
 		weight = 0
@@ -1533,7 +1546,6 @@ trait_pc_ark_preference = {
 
 	ideal_planet_class = pc_ark
 	opposites = { "trait_resilient" "trait_genetic_memory" "trait_sedentary" }
-
 	species_potential_add = {
 		if = {
 			limit = {
@@ -1551,8 +1563,11 @@ trait_pc_ark_preference = {
 			}
 		}
 	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
+	}
 	species_possible_merge_add = {
-		always = yes
+		can_take_non_ocean_planet_preference = yes
 	}
 	initial = no
 	randomized = no

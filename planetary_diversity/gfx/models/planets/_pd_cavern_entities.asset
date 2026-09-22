@@ -5,9 +5,9 @@ entity = {
 
     meshsettings = {
     name = "planet_geosphereShape"
-    texture_diffuse = "karst_01_diffuse.dds"
-	texture_normal = "karst_01_normal.dds"
-	texture_specular = "karst_01_specular.dds"
+    texture_diffuse = "pd_karst_01_diffuse.dds"
+	texture_normal = "pd_karst_01_normal.dds"
+	texture_specular = "pd_karst_01_specular.dds"
     }
 
 	##cloud texture override

@@ -246,7 +246,6 @@ pc_pd_hive_tidally_locked = {
 	modifier = {
 		pop_environment_tolerance = 1
 		pop_bonus_workforce_mult = 0.10
-		planet_max_buildings_add = 1002
 		job_spawning_drone_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
@@ -276,7 +275,6 @@ pc_pd_hive_tidally_locked_arc = {
 	modifier = {
 		pop_environment_tolerance = 1
 		pop_bonus_workforce_mult = 0.10
-		planet_max_buildings_add = 1002
 		job_spawning_drone_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
@@ -307,12 +305,11 @@ pc_pd_machine_tidally_locked = {
 		pop_bonus_workforce_mult = 0.10
 		pop_housing_usage_mult = -0.10
 		pop_environment_tolerance = 0.0
-		planet_max_buildings_add = 1002
 		job_replicator_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
 }
-#Machine Neuxs
+#Machine Nexus
 pc_pd_machine_tidally_locked_arc = {
 	entity = "pd_machine_tidally_locked_arcology_planet"
 	entity_scale = @planet_standard_scale
@@ -337,7 +334,6 @@ pc_pd_machine_tidally_locked_arc = {
 		pop_bonus_workforce_mult = 0.10
 		pop_housing_usage_mult = -0.10
 		pop_environment_tolerance = 0.0
-		planet_max_buildings_add = 1002
 		job_replicator_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}

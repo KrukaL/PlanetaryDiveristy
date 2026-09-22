@@ -585,3 +585,170 @@ tech_biosynth_living_foundry = {
 		factor = 5 #important resource
 	}
 }
+
+#Bonefield World
+tech_tiyanki_butchery = {
+	icon = tech_tiyanki_butchery
+	cost = @tier2cost3
+	area = society
+	tier = 2
+	category = { biology }
+	weight = @tier2weight3
+	is_rare = yes
+	is_reverse_engineerable = no
+	start_tech = no
+
+	potential = {
+		pd_can_have_tiyanki_tech = yes
+	}
+
+	weight_modifier = {
+		factor = 0
+		modifier = {
+			add = 10
+			pd_can_have_tiyanki_tech = yes
+		}
+	}
+
+	prereqfor_desc = {
+		custom = {
+			title = "tech_tiyanki_butchery_tt_desc"
+			desc = "tech_tiyanki_butchery_desc"
+		}
+	}
+
+	ai_weight = {
+		factor = 5 #important resource
+	}
+}
+
+tech_tiyanki_relic_beds = {
+	icon = tech_tiyanki_relic_beds
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { biology }
+	prerequisites = { "tech_tiyanki_butchery" }
+	weight = @tier3weight3
+	is_rare = yes
+	is_reverse_engineerable = no
+	start_tech = no
+
+	potential = {
+		pd_can_have_tiyanki_tech = yes
+	}
+
+	weight_modifier = {
+		factor = 0
+		modifier = {
+			add = 10
+			pd_can_have_tiyanki_tech = yes
+		}
+	}
+
+	prereqfor_desc = {
+		custom = {
+			title = "tech_tiyanki_relic_beds_tt_desc"
+			desc = "tech_tiyanki_relic_beds_desc"
+		}
+	}
+
+	ai_weight = {
+		factor = 5 #important resource
+	}
+}
+
+tech_tiyanki_observatory = {
+	icon = tech_tiyanki_observatory
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { biology }
+	prerequisites = { "tech_tiyanki_butchery" }
+	weight = @tier3weight3
+	is_rare = yes
+	is_reverse_engineerable = no
+	start_tech = no
+
+	potential = {
+		pd_can_have_tiyanki_tech = yes
+	}
+
+	weight_modifier = {
+		factor = 0
+		modifier = {
+			add = 10
+			pd_can_have_tiyanki_tech = yes
+		}
+	}
+
+	ai_weight = {
+		factor = 5 #important resource
+	}
+}
+
+tech_tiyanki_renderworks = {
+	icon = tech_tiyanki_renderworks
+	cost = @tier3cost3
+	area = engineering
+	tier = 3
+	category = { industry }
+	prerequisites = { "tech_tiyanki_butchery" }
+	weight = @tier3weight3
+	is_rare = yes
+	is_reverse_engineerable = no
+	start_tech = no
+
+	potential = {
+		pd_can_have_tiyanki_tech = yes
+	}
+
+	weight_modifier = {
+		factor = 0
+		modifier = {
+			add = 10
+			pd_can_have_tiyanki_tech = yes
+		}
+	}
+
+	ai_weight = {
+		factor = 5 #important resource
+	}
+}
+
+tech_tiyanki_beacon = {
+	icon = tech_tiyanki_beacon
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	weight = @tier3weight3
+	is_rare = yes
+	is_reverse_engineerable = no
+	start_tech = no
+
+	potential = {
+		is_nomadic = yes
+		has_country_flag = found_pd_bonefield_planet
+	}
+
+	weight_modifier = {
+		factor = 0
+		modifier = {
+			add = 10
+			is_nomadic = yes
+			has_country_flag = found_pd_bonefield_planet
+		}
+	}
+
+	prereqfor_desc = {
+		custom = {
+			title = "tech_tiyanki_beacon_tt_desc"
+			desc = "tech_tiyanki_beacon_desc"
+		}
+	}
+
+	ai_weight = {
+		factor = 5 #important resource
+	}
+}

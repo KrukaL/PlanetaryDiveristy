@@ -64,6 +64,21 @@ country_event = {
 				}
 			}
 		}
+		# Bonefield galaxy spawn disabled; content incomplete
+#		if = {
+#			limit = {
+#				NOT = {
+#					any_system = { has_star_flag = pd_bonefield_system }
+#				}
+#			}
+#			random_system = {
+#				spawn_system = {
+#					min_jumps = 1
+#					max_jumps = 4
+#					initializer = pd_init_bonefield
+#				}
+#			}
+#		}
 	}
 }
 
@@ -103,6 +118,19 @@ planet_event = {
 			set_planet_entity = {
 				picture = pc_pd_biosynth
 				entity = pd_biosynth_planet_01_entity
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_modifier = pd_bonefield
+					has_modifier = pd_bonefield_controlled
+					has_modifier = pd_bonefield_warded
+				}
+			}
+			set_planet_entity = {
+				picture = pc_pd_bonefield
+				entity = pd_bonefield_planet_01_entity
 			}
 		}
 	}

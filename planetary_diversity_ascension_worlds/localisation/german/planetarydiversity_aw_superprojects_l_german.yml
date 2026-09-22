@@ -33,7 +33,7 @@
  #Planet Class
  pc_pd_agriworld: "Agriworld"
  pc_pd_agriworld_desc: "Dieser felsige Planet ist voll von endloser industrieller Landwirtschaft, die stark auf potente Düngemittel, komplexe Wetterkontrolle und fortschrittliche Bewässerungssysteme angewiesen ist. Obwohl sie eine unaufhörliche Fülle aufrechterhält, hat sie das natürliche Ökosystem des Planeten ersetzt."
- pc_pd_agriworld_adj: "agarian"
+ pc_pd_agriworld_adj: "agrarian"
  mod_pc_pd_agriworld_habitability: "Agriworld-Bewohnbarkeit"
  trait_pc_pd_agriworld_preference: "Agriworld-Präferenz"
  trait_pc_pd_agriworld_preference_desc: "$trait_pc_arctic_preference_desc$"

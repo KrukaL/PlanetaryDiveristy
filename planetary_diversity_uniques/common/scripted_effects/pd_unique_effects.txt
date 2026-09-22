@@ -54,3 +54,396 @@ pd_create_artifical_floating_islands_effect = {
 # 		entity = "technoorganic_planet_01_entity"
 # 	}
 # }
+
+#Bonefield World
+pd_create_bonefield_tiyanki_country_effect = {
+	if = {
+		limit = {
+			NOT = { exists = event_target:pd_bonefield_tiyanki_country }
+		}
+		create_country = {
+			name = "NAME_Placid_Leviathans"
+			type = tiyanki_garrison
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_1.dds"
+				}
+				background = {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors = { "black" "black" "null" "null" }
+			}
+			effect = {
+				save_global_event_target_as = pd_bonefield_tiyanki_country
+			}
+		}
+	}
+}
+
+# Resident herds; six packs circuit the five flagged gas giants forever so the system reads as inhabited.
+pd_create_bonefield_tiyanki_herd_effect = {
+	event_target:pd_bonefield_tiyanki_country = {
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 3
+					create_ship = { design = "NAME_Tiyanki_Cow" }
+				}
+				while = {
+					count = 5
+					create_ship = { design = "NAME_Tiyanki_Calf" }
+				}
+				set_location = event_target:pd_bonefield_giant1
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.a1
+								has_carrier_flag = pd_bonefield_giant1
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 200 random = 120 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.a2
+								has_carrier_flag = pd_bonefield_giant2
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 200 random = 120 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.a3
+								has_carrier_flag = pd_bonefield_giant3
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 200 random = 120 }
+					}
+				}
+			}
+		}
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 2
+					create_ship = { design = "NAME_Tiyanki_Bull" }
+				}
+				while = {
+					count = 6
+					create_ship = { design = "NAME_Tiyanki_Hatchling" }
+				}
+				set_location = event_target:pd_bonefield_giant3
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.b1
+								has_carrier_flag = pd_bonefield_giant3
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 240 random = 140 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.b2
+								has_carrier_flag = pd_bonefield_giant4
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 240 random = 140 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.b3
+								has_carrier_flag = pd_bonefield_giant2
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 240 random = 140 }
+					}
+				}
+			}
+		}
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 2
+					create_ship = { design = "NAME_Tiyanki_Cow" }
+				}
+				while = {
+					count = 1
+					create_ship = { design = "NAME_Tiyanki_Bull" }
+				}
+				while = {
+					count = 4
+					create_ship = { design = "NAME_Tiyanki_Calf" }
+				}
+				set_location = event_target:pd_bonefield_giant4
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.c1
+								has_carrier_flag = pd_bonefield_giant4
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 280 random = 160 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.c2
+								has_carrier_flag = pd_bonefield_giant5
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 280 random = 160 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.c3
+								has_carrier_flag = pd_bonefield_giant1
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 280 random = 160 }
+					}
+				}
+			}
+		}
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 3
+					create_ship = { design = "NAME_Tiyanki_Bull" }
+				}
+				while = {
+					count = 6
+					create_ship = { design = "NAME_Tiyanki_Hatchling" }
+				}
+				set_location = event_target:pd_bonefield_giant5
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.d1
+								has_carrier_flag = pd_bonefield_giant5
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 220 random = 130 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.d2
+								has_carrier_flag = pd_bonefield_giant3
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 220 random = 130 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.d3
+								has_carrier_flag = pd_bonefield_giant4
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 220 random = 130 }
+					}
+				}
+			}
+		}
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 2
+					create_ship = { design = "NAME_Tiyanki_Cow" }
+				}
+				while = {
+					count = 1
+					create_ship = { design = "NAME_Tiyanki_Bull" }
+				}
+				while = {
+					count = 5
+					create_ship = { design = "NAME_Tiyanki_Calf" }
+				}
+				set_location = event_target:pd_bonefield_giant2
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.e1
+								has_carrier_flag = pd_bonefield_giant2
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 260 random = 150 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.e2
+								has_carrier_flag = pd_bonefield_giant5
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 260 random = 150 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.e3
+								has_carrier_flag = pd_bonefield_giant1
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 260 random = 150 }
+					}
+				}
+			}
+		}
+		create_fleet = {
+			name = "NAME_Tiyanki_Space_Whale"
+			settings = { spawn_debris = no }
+			effect = {
+				set_owner = event_target:pd_bonefield_tiyanki_country
+				while = {
+					count = 1
+					create_ship = { design = "NAME_Tiyanki_Cow" }
+				}
+				while = {
+					count = 2
+					create_ship = { design = "NAME_Tiyanki_Bull" }
+				}
+				while = {
+					count = 5
+					create_ship = { design = "NAME_Tiyanki_Hatchling" }
+				}
+				set_location = event_target:pd_bonefield_giant1
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = return_point
+				set_aggro_range = 0
+				set_fleet_flag = NAME_Tiyanki_Space_Whale
+				set_fleet_flag = pd_bonefield_herd
+				queue_actions = {
+					repeat = {
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.f1
+								has_carrier_flag = pd_bonefield_giant1
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 300 random = 170 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.f2
+								has_carrier_flag = pd_bonefield_giant2
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 300 random = 170 }
+						find_closest_planet = {
+							trigger = {
+								id = pd.bonefield.herd.f3
+								has_carrier_flag = pd_bonefield_giant5
+							}
+							found_planet = {
+								move_to = this
+								orbit_planet = this
+							}
+						}
+						wait = { duration = 300 random = 170 }
+					}
+				}
+			}
+		}
+	}
+}

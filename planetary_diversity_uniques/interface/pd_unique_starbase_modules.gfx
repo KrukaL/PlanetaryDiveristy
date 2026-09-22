@@ -11,4 +11,8 @@ spriteTypes = {
 		name = "GFX_waystation_pd_biosynth_foundry"
 		texturefile = "gfx/interface/icons/modules/waystation_pd_biosynth_foundry.dds"
 	}
+	spriteType = {
+		name = "GFX_waystation_pd_tiyanki_beacon"
+		texturefile = "gfx/interface/icons/modules/waystation_pd_tiyanki_beacon.dds"
+	}
 }

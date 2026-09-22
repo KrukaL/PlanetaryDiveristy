@@ -37,4 +37,5 @@ pd_pelagic_planet = {
 	planet_max_districts_add = 1
 	logistic_growth_mult = 0.05
 	pop_environment_tolerance = -0.2
+	planet_orbital_bombardment_damage = -0.1
 }

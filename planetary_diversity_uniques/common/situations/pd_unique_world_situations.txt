@@ -217,3 +217,121 @@ situation_pd_biosynth_the_long_watch = {
 		base = 0
 	}
 }
+# Bonefield World. All three approaches progress at the same rate; whichever is active on completion is locked in permanently by pdbonefield.130.
+situation_pd_bonefield_flight = {
+	picture = GFX_evt_pd_bonefield
+	category = neutral
+	complete_icon_frame = GFX_situation_outcome_frame_blue
+	complete_icon = GFX_situation_outcome_unknown
+	situation_log_category = empire_concerns
+
+	on_progress_complete = {
+		custom_tooltip = situation_pd_bonefield_flight_outcome
+		set_situation_locked = yes
+		hidden_effect = {
+			situation_event = { id = pdbonefield.130 }
+		}
+	}
+
+	abort_trigger = {
+		OR = {
+			NOT = { exists = target.owner }
+			target.owner = { NOT = { is_same_value = root.owner } }
+		}
+	}
+
+	stages = {
+		stage_1 = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_blue
+			end = 120
+			custom_tooltip = situation_pd_bonefield_flight_stage_1
+		}
+		stage_2 = {
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_blue
+			end = 240
+			on_first_enter = {
+				situation_event = { id = pdbonefield.120 }
+			}
+			custom_tooltip = situation_pd_bonefield_flight_stage_2
+		}
+	}
+
+	approach = {
+		name = situation_pd_bonefield_flight_low
+		icon = GFX_situation_approach_shrug
+		icon_background = GFX_situation_approach_bg_green
+		potential = { always = yes }
+		allow = { always = yes }
+		on_select = {
+			custom_tooltip = situation_pd_bonefield_flight_low_tt
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 10
+				physics_research = 5
+				society_research = 5
+			}
+		}
+	}
+
+	approach = {
+		name = situation_pd_bonefield_flight_standard
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_yellow
+		default = yes
+		potential = { always = yes }
+		allow = { always = yes }
+		on_select = {
+			custom_tooltip = situation_pd_bonefield_flight_standard_tt
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 20
+				physics_research = 10
+				society_research = 10
+			}
+		}
+	}
+
+	approach = {
+		name = situation_pd_bonefield_flight_extra
+		icon = GFX_situation_approach_energy_credits
+		icon_background = GFX_situation_approach_bg_red
+		potential = { always = yes }
+		allow = { always = yes }
+		on_select = {
+			custom_tooltip = situation_pd_bonefield_flight_extra_tt
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 40
+				physics_research = 20
+				society_research = 20
+			}
+		}
+	}
+
+	monthly_progress = {
+		base = 0
+		modifier = {
+			desc = string_current_approach
+			current_situation_approach = situation_pd_bonefield_flight_low
+			add = 1
+		}
+		modifier = {
+			desc = string_current_approach
+			current_situation_approach = situation_pd_bonefield_flight_standard
+			add = 2
+		}
+		modifier = {
+			desc = string_current_approach
+			current_situation_approach = situation_pd_bonefield_flight_extra
+			add = 4
+		}
+	}
+}

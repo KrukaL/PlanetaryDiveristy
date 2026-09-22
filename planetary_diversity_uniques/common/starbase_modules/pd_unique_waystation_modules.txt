@@ -167,3 +167,57 @@ waystation_pd_biosynth_foundry = {
 		weight = 300
 	}
 }
+
+# Bonefield World; mirrors the tiyanki_migration_study edict.
+waystation_pd_tiyanki_beacon = {
+	icon = "GFX_waystation_pd_tiyanki_beacon"
+	section = "SCIENCE_STARBASE_SECTION"
+	construction_days = @waystation_build_time_180
+	category = sm_utility_cat
+
+	empire_limit = 1
+	starbase_limit = {
+		base = 1
+	}
+
+	potential = {
+		is_waystation_starbase = yes
+		owner? = {
+			has_technology = tech_tiyanki_beacon
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = sm_pd_requires_bonefield_world
+			solar_system? = {
+				has_star_flag = pd_bonefield_system
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_waystations_modules
+		cost = {
+			alloys = @waystation_cost_alloys_250
+		}
+		upkeep = {
+			trade = @waystation_upkeep_trade_4
+		}
+	}
+
+	waystation_network_country_modifier = {
+		category_biology_research_speed_mult = 0.15
+		planet_researchers_produces_mult = 0.1
+	}
+
+	show_in_tech = "tech_tiyanki_beacon"
+
+	show_tech_unlock_if = {
+		is_nomadic = yes
+	}
+
+	ai_weight = {
+		weight = 300
+	}
+}

@@ -59,7 +59,7 @@ zone_pd_preserve = {
 	}
 }
 
-#Fortess Arc
+#Fortress Arc
 zone_pd_command_nexus = {
 	icon = GFX_job_naval_admin
 	base_buildtime = @zone_buildtime
@@ -142,7 +142,7 @@ zone_pd_command_nexus = {
 	}
 }
 
-#Commerical Arc
+#Commercial Arc
 zone_pd_trade_market = {
 	icon = GFX_job_trader
 	base_buildtime = @zone_buildtime

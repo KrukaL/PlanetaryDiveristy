@@ -14,6 +14,16 @@ pd_can_have_crystal_tech = {
 	}
 }
 
+pd_can_have_tiyanki_tech = {
+	any_owned_planet =  {
+		OR = {
+			has_modifier = pd_bonefield
+			has_modifier = pd_bonefield_controlled
+			has_modifier = pd_bonefield_warded
+		}
+	}
+}
+
 pd_can_have_biosynth_tech = {
 	OR = {
 		has_origin = origin_pd_biosynth

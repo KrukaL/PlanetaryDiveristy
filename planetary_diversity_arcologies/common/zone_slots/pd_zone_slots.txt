@@ -144,7 +144,7 @@ slot_pd_fortress_arcology_urban_02 = {
 	}
 }
 
-#Commerical Arc
+#Commercial Arc
 slot_pd_commercial_arc_01 = {
 	include = {
 		zone_urban

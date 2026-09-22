@@ -2,7 +2,6 @@
 pd_aw_tree_of_life_bloomed = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_pd_aw_megaflora_hive_bloomed.dds"
 	icon_frame = 1
-	planet_max_buildings_add = 1002
 	planet_resettlement_unemployed_destination_mult = 0.5
 	planet_orbital_bombardment_damage = -1
 	planet_structures_cost_mult = 0.5
@@ -11,7 +10,6 @@ pd_aw_tree_of_life_bloomed = {
 pd_aw_tree_of_life_home = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_pd_aw_megaflora_hive_bloomed.dds"
 	icon_frame = 1
-	planet_max_buildings_add = 6
 	planet_resettlement_unemployed_destination_mult = 0.25
 	planet_orbital_bombardment_damage = -0.5
 	planet_structures_cost_mult = 0.5
@@ -112,6 +110,7 @@ ocean_paradise_2 = {
 	pop_happiness = 0.15
 	logistic_growth_mult = 0.1
 	pop_bonus_workforce_mult = 0.05
+	planet_orbital_bombardment_damage = -0.1
 }
 
 ocean_paradise_hive_2 = {
@@ -122,6 +121,7 @@ ocean_paradise_hive_2 = {
 	planet_stability_add = 1000
 	logistic_growth_mult = 0.1
 	pop_bonus_workforce_mult = 0.05
+	planet_orbital_bombardment_damage = -0.1
 }
 
 #Necro
@@ -231,5 +231,6 @@ pd_pelagic_planet = {
 	planet_max_districts_add = 1
 	logistic_growth_mult = 0.05
 	pop_environment_tolerance = -0.2
+	planet_orbital_bombardment_damage = -0.1
 }
 

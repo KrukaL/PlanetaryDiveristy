@@ -1,0 +1,255 @@
+artisan = {
+	category = specialist
+
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_factory_1
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_artificer_trigger = yes
+			}
+			name = artificer
+			desc = artificer
+			icon = artificer
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_pearl_diver_trigger = yes
+			}
+			name = pearl_diver
+			desc = pearl_diver
+			icon = pearl_diver
+			building_icon = building_food_processing_facility
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_artificer_trigger = yes
+				artisan_is_pearl_diver_trigger = yes
+			}
+			name = pearl_crafter
+			desc = pearl_crafter
+			icon = pearl_diver
+			building_icon = building_food_processing_facility
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_coral
+				num_zones = { type = zone_pd_coral_guild value > 0 }
+			}
+			name = pd_coral_dye_artisan
+			desc = job_pd_coral_dye_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_cryoflora
+				num_zones = { type = zone_pd_cryoflora_guild value > 0 }
+			}
+			name = pd_cryoflora_frostsilk_artisan
+			desc = job_pd_cryoflora_frostsilk_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_guild value > 0 }
+			}
+			name = pd_lanthanide_phosphor_artisan
+			desc = job_pd_lanthanide_phosphor_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_petrified
+				num_zones = { type = zone_pd_petrified_guild value > 0 }
+			}
+			name = pd_petrified_amber_artisan
+			desc = job_pd_petrified_amber_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_guild value > 0 }
+			}
+			name = pd_reef_nacre_artisan
+			desc = job_pd_reef_nacre_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_guild value > 0 }
+			}
+			name = pd_sinkhole_speleothem_artisan
+			desc = job_pd_sinkhole_speleothem_artisan_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+	}
+	tags = { consumer_goods }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	resources = {
+		category = planet_artisans
+		# PRODUCES
+		produces = {
+			consumer_goods = 6
+		}
+		# Job Swap - Artificers
+		produces = {
+			trigger = {
+				artisan_is_artificer_trigger = yes
+			}
+			consumer_goods = 2
+			trade = 2
+		}
+		# Job Swap - Pearl Divers
+		produces = {
+			trigger = {
+				colony? = {
+					artisan_is_pearl_diver_trigger = yes
+				}
+			}
+			trade = 2
+		}
+		# Job Swap - Catalytic
+		produces = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+			}
+			consumer_goods = 1.5
+		}
+		# UPKEEP
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = no
+			}
+			minerals = 6
+		}
+		# Job Swap - Pearl Divers
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = no
+				colony? = {
+					artisan_is_pearl_diver_trigger = yes
+				}
+			}
+			minerals = -2
+			food = 3
+		}
+		# Job Swap - Catalytic
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+			}
+			food = 9
+		}
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+				colony? = {
+					artisan_is_pearl_diver_trigger = yes
+				}
+			}
+			minerals = 2
+			food = -3
+		}
+		produces = {
+			trigger = {
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
+			}
+			consumer_goods = @requisitorium_consumer_goods_reduction
+		}
+		upkeep = {
+			trigger = {
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
+			}
+			minerals = 1
+		}
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
+			}
+			food = 1.5
+		}
+		inline_script = "output/factory_output"
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_consumer_goods
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_produce_requisitorium
+					exists = owner.overlord
+					owner.overlord = { country_uses_consumer_goods = yes }
+				}
+			}
+			consumer_goods = @requisitorium_consumer_goods_overlord
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			artisan_is_pearl_diver_trigger = yes
+			owner? = {
+				has_valid_civic = civic_agrarian_idyll
+				NOT = {
+					has_valid_civic = civic_dystopian_society
+				}
+			}
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		modifier = {
+			factor = 2
+			is_enslaved = yes
+			can_take_servant_job = no
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_consumer_goods"
+
+}

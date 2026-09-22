@@ -106,7 +106,7 @@
  d_phab_energy_1_desc: "This site boasts a rich vein of radioactive isotopes, readily accessible and ideal for efficient power generation."
  d_phab_energy_2: "Frozen Gas Lakes"
  d_phab_energy_2_desc: "Ancient gases solidified under immense pressure in these frigid lakes, creating a unique and valuable reservoir of frozen resources."
- d_phab_energy_3: "Undergroud Vents"
+ d_phab_energy_3: "Underground Vents"
  d_phab_energy_3_desc: "Metalliferous sediments and superheated groundwater combine in a volatile reaction, producing energy-rich chemical vents prime for harnessing power."
  d_phab_mining_1: "Mineral Fields"
  d_phab_mining_1_desc: "Geological upheaval exposed these valuable minerals to the planet's surface long ago."
@@ -131,9 +131,9 @@
 
 #Decisions
  decision_build_solar_system_network_hub: "Build $d_pd_solar_system_network_hub$"
- decision_build_solar_system_network_hub_desc: "We will construct a hub linking the solar system's planetary Planetary Outposts to this world's economy."
+ decision_build_solar_system_network_hub_desc: "We will construct a hub linking the solar system's Planetary Outposts to this world's economy."
  decision_remove_solar_system_network_hub: "Remove $d_pd_solar_system_network_hub$"
- decision_remove_solar_system_network_hub_desc: "We will remove the hub linking the solar system's planetary Planetary Outposts to this world's economy."
+ decision_remove_solar_system_network_hub_desc: "We will remove the hub linking the solar system's Planetary Outposts to this world's economy."
  decision_change_moon_base: "Replace Moon Planetary Outpost"
  decision_change_moon_base_desc: "This will change the Planetary Outpost on this moon."
  decision_change_moon_base_effects: "We will be able to choose a different use for this moon's Planetary Outpost."

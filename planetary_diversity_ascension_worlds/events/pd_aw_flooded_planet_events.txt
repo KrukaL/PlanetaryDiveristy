@@ -105,7 +105,7 @@ planet_event = {
 	}
 }
 
-# This event changes arcologies after the change effect has hapepens
+# This event changes arcologies after the change effect has happens
 planet_event = {
 	id = pdfloodedplanets.201
 	hide_window = yes

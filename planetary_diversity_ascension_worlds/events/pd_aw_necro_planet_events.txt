@@ -48,7 +48,7 @@ planet_event = {
 	}
 }
 
-# This event changes arcologies after the change effect has hapepens
+# This event changes arcologies after the change effect has happens
 planet_event = {
 	id = pdnecroplanet.101
 	hide_window = yes

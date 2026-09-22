@@ -240,7 +240,7 @@ country_event = {
 	}
 }
 
-#Origin Set Up for Interplanerary Settlers
+#Origin Set Up for Interplanetary Settlers
 colony_event = {
 	id = pddomebases.200
 	hide_window = yes

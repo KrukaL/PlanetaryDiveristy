@@ -87,6 +87,7 @@ origin_pd_biosynth = {
 	# Machine Age content: the Unit 04 and Biosynthetic portraits. The origin is pickable first and then unlocks the BIOSYNTH species class, which requires it, so the dependency stays one-way and the empire creator cannot deadlock.
 	playable = { has_machine_age_dlc = yes }
 	possible = {
+		species_class = { value = BIOSYNTH }
 		is_nomadic = no
 	}
 	initializers = { pd_origin_init_biosynth }

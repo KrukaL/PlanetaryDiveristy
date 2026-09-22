@@ -175,7 +175,6 @@ pc_pd_hive_superhabitable = {
 	modifier = {
 		pop_environment_tolerance = 1
 		pop_bonus_workforce_mult = 0.10
-		planet_max_buildings_add = 1002
 		job_spawning_drone_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
@@ -209,7 +208,6 @@ pc_pd_hive_superhabitable_arc = {
 	modifier = {
 		pop_environment_tolerance = 1
 		pop_bonus_workforce_mult = 0.10
-		planet_max_buildings_add = 1002
 		job_spawning_drone_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
@@ -243,7 +241,6 @@ pc_pd_machine_superhabitable = {
 	modifier = {
 		pop_bonus_workforce_mult = 0.10
 		pop_housing_usage_mult = -0.10
-		planet_max_buildings_add = 1002
 		job_replicator_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}
@@ -276,7 +273,6 @@ pc_pd_machine_superhabitable_arc = {
 	modifier = {
 		pop_bonus_workforce_mult = 0.10
 		pop_housing_usage_mult = -0.10
-		planet_max_buildings_add = 1002
 		job_replicator_add = 100
 		planet_resettlement_unemployed_destination_mult = 0.5
 	}

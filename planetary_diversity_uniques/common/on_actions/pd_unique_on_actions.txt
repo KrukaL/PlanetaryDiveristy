@@ -6,6 +6,16 @@ on_survey_planet = {
 		pdfloating.100
 		pdcrystal.100
 		pdbiosynth.100
+		pdbonefield.20
+	}
+}
+
+# A ship has entered a system.
+# Scope = Ship
+# From = System
+on_entering_system = {
+	events = {
+		pdbonefield.10
 	}
 }
 
@@ -52,6 +62,15 @@ on_game_start_country = {
 on_colonized = {
 	events = {
 		pdcrystal.200
+		pdbonefield.25
+	}
+}
+
+# Fires every five years.
+# This = Country
+on_five_year_pulse_country = {
+	events = {
+		pdbonefield.100
 	}
 }
 

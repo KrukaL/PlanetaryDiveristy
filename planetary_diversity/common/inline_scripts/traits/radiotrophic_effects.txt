@@ -6,7 +6,7 @@ resources = {
 			is_being_purged = no
 			exists = planet
 			NOT = {
-				planet = { is_planet_class = pc_nuked }
+				planet = { pd_is_planet_class_nuked = yes }
 			}
 			is_sapient = yes
 		}
@@ -15,13 +15,19 @@ resources = {
 }
 modifier = {
 	pc_nuked_habitability = 0.1
+	pc_pd_nuked_superhabitable_habitability = 0.1
+	pc_pd_nuked_tidally_locked_habitability = 0.1
+	pc_pd_nuked_cave_habitability = 0.1
 }
 triggered_planet_growth_habitability_modifier = {
 	potential = {
 		exists = planet
 		planet = { has_deposit = d_lithoid_crater }
 	}
-	pc_nuked_habitability = 0.1
+	pc_nuked_habitability = 0.05
+	pc_pd_nuked_superhabitable_habitability = 0.05
+	pc_pd_nuked_tidally_locked_habitability = 0.05
+	pc_pd_nuked_cave_habitability = 0.05
 }
 triggered_planet_growth_habitability_modifier = {
 	potential = {
@@ -52,12 +58,12 @@ slave_cost = {
 assembly_score = {
 	modifier = {
 		add = 1
-		from = { is_planet_class = pc_nuked }
+		from = { pd_is_planet_class_nuked = yes }
 	}
 	modifier = {
 		add = 0.05
 		from = {
-			is_planet_class = pc_nuked
+			pd_is_planet_class_nuked = yes
 			has_deposit = d_lithoid_crater
 		}
 	}

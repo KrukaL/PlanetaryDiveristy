@@ -3,7 +3,10 @@
 ###Wasteland Planets
 #AP
  ap_pd_wasteland_worlds: "규제 없는 산업주의"
- ap_pd_wasteland_worlds_desc: "환경 문제는 우리의 발목을 잡을 뿐입니다. 행성의 자연 생태계 상태를 무시한다면 행성의 진정한 산업적 잠재력을 발휘할 수 있습니다."
+ ap_pd_wasteland_worlds_desc: "환경 문제는 우리의 발목을 잡을 뿐입니다. 행성의 자연 생태계 상태를 무시한다면 행성의 진정한 산업적 잠재력을 발휘할 수 있습니다. Available to a ['concept_pd_toxoid_empire']."
+ concept_pd_toxoid_empire: "Toxoid Empire"
+ concept_pd_toxoid_empires: "Toxoid Empires"
+ concept_pd_toxoid_empire_desc: "$concept_pd_toxoid_empire$ consists of empires with \n- $TOX$ $SPECIES_CLASS$$NEW_LINE$- ['civic:civic_relentless_industrialists']$NEW_LINE$- ['civic:civic_corporate_relentless_industrialists']$NEW_LINE$- ['civic:civic_toxic_baths']$NEW_LINE$- ['civic:civic_hive_toxic_baths']$NEW_LINE$- ['civic:civic_machine_toxic_baths']$NEW_LINE$- ['civic:civic_corporate_toxic_baths']$NEW_LINE$- ['civic:origin_overtuned']"
  allow_wasteland_worlds: "§Y결정 해제:§! 이상적이지 않은 행성에 $decision_pd_aw_wasteland_planet$"
  describe_wasteland_worlds: "§Y$decision_pd_aw_wasteland_planet$§! 모디파이어:\n$t$- £district£ §YGenerator Districts§!와 §YMining District§!의 최대 제한을 해제\n$t$- $MOD_HABITABILITY_CEIL$: §Y60%§!\n$t$- $mod_planet_jobs_alloys_produces_mult$: §G100%§!\n$t$- $mod_planet_jobs_consumer_goods_produces_mult$: §G100%§!"
 

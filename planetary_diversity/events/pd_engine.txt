@@ -3513,34 +3513,25 @@ country_event = {
 	immediate = {
 		every_galaxy_planet = {
 			limit = {
-				OR = {
-					pd_is_planet_class_superhabitable = yes
-					is_planet_class = pc_pd_barren_superhabitable
-				}
+				pd_is_planet_class_superhabitable_any = yes
 			}
 			set_planet_flag = pd_superhabitable_world
 		}
 		every_galaxy_planet = {
 			limit = {
-				OR = {
-					pd_is_planet_class_tidally_locked = yes
-					is_planet_class = pc_pd_barren_tidally_locked
-				}
+				pd_is_planet_class_tidally_locked_any = yes
 			}
 			set_planet_flag = pd_tidally_locked_world
 		}
 		every_galaxy_planet = {
 			limit = {
-				OR = {
-					pd_is_planet_class_cave = yes
-					is_planet_class = pc_pd_barren_cave
-				}
+				pd_is_planet_class_cave_any = yes
 			}
 			set_planet_flag = pd_cave_world
 		}
 	}
 }
-#This event gives uncommon arcologies their correct modifer
+#This event gives uncommon arcologies their correct modifier
 planet_event = {
 	id = pdengine.35
 	hide_window = yes
@@ -3598,6 +3589,47 @@ planet_event = {
 					graphical_culture = owner
 				}
 			}
+		}
+	}
+}
+
+#This event stamps the uncommon world flags on any matching class formed after game start.
+#pdengine.34 only sweeps the galaxy once, so directly spawned and terraformed worlds need this.
+#Add only. pdengine.35 and pdengine.36 read these flags once the world is pc_city, so they have to outlive the class.
+planet_event = {
+	id = pdengine.37
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			pd_is_planet_class_tidally_locked_any = yes
+			pd_is_planet_class_cave_any = yes
+			pd_is_planet_class_superhabitable_any = yes
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				pd_is_planet_class_tidally_locked_any = yes
+				NOT = { has_planet_flag = pd_tidally_locked_world }
+			}
+			set_planet_flag = pd_tidally_locked_world
+		}
+		if = {
+			limit = {
+				pd_is_planet_class_cave_any = yes
+				NOT = { has_planet_flag = pd_cave_world }
+			}
+			set_planet_flag = pd_cave_world
+		}
+		if = {
+			limit = {
+				pd_is_planet_class_superhabitable_any = yes
+				NOT = { has_planet_flag = pd_superhabitable_world }
+			}
+			set_planet_flag = pd_superhabitable_world
 		}
 	}
 }
@@ -3830,7 +3862,7 @@ planet_event = {
 			}
 			remove_modifier = engineered_environment_gaia
 		}
-		#This makes sure domed habs lose their modifers if the planet class changes
+		#This makes sure domed habs lose their modifiers if the planet class changes
 		if = {
 			limit = {
 				NOR = {
@@ -3857,14 +3889,14 @@ planet_event = {
 			remove_modifier = pd_domed_energy_site_1
 			remove_modifier = pd_domed_research_site_1
 		}
-		#These make sure that unihabitable modifiers lose the modifier if terraformed
+		#These make sure that uninhabitable modifiers lose the modifier if terraformed
 		if = {
 			limit = {
 				colonizable_planet = yes
 			}
 			pd_remove_uninhabitable_modifiers = yes
 		}
-		#This makes sure my unihabitable modifiers lose their modifiers if the planet class is changed.
+		#This makes sure my uninhabitable modifiers lose their modifiers if the planet class is changed.
 		if = {
 			limit = {
 				NOR = {
@@ -4550,7 +4582,7 @@ country_event = {
 			random_list = {
 				15 = {
 					set_planet_entity = {
-						picture = pc_subglacial
+						picture = pd_subglacial
 						entity = "subglacial_planet_01_entity"
 					}
 					add_modifier = {
@@ -4885,7 +4917,7 @@ country_event = {
 			}
 			set_planet_flag = pdeuropa
 			set_planet_entity = {
-				picture = pc_subglacial
+				picture = pd_subglacial
 				entity = "subglacial_planet_01_entity"
 			}
 		}

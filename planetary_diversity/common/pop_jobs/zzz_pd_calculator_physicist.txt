@@ -1,0 +1,292 @@
+calculator_physicist = {
+	category = complex_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_research_lab_1
+			icon = physicist
+		}
+		# Machine Astrometeorologists
+		swap_type = {
+			trigger = {
+				owner? = { is_machine_empire = yes }
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist_machine
+			desc = astrometeorologist_machine
+			icon = astrometeorologist_machine
+			building_icon = building_astrometeorology_observation_center
+			weight = 5
+		}
+		#Brain Drone Physicist - auth_hive
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_physicist
+			desc = brain_drone_physicist
+			icon = brain_drone_physicist
+			building_icon = building_research_lab_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 50
+		}
+		# Hive Astrometeorologists
+		swap_type = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist_hive
+			desc = astrometeorologist_hive
+			icon = astrometeorologist_hive
+			building_icon = building_astrometeorology_observation_center
+			weight = 55
+		}
+		# Dimension Portal Researcher
+		swap_type = {
+			trigger = {
+				physicist_is_dimensional_portal_researcher_trigger = yes
+			}
+			name = dimensional_portal_researcher_gestalt
+			desc = dimensional_portal_researcher_gestalt
+			weight = 60
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_physicist
+			desc = evosymbiont
+			icon = brain_drone_physicist
+			building_icon = brain_node_3
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 100
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_extradimensional_research_unit_trigger = yes
+			}
+			name = extradimensional_research_unit
+			desc = job_extradimensional_research_unit_desc
+			icon = extradimensional_research_unit
+			building_icon = building_materiality_engine
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 100
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_lab value > 0 }
+			}
+			name = pd_lanthanide_rare_earth_physicist_drone
+			desc = job_pd_lanthanide_rare_earth_physicist_drone_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_storm
+				num_zones = { type = zone_pd_storm_lab value > 0 }
+			}
+			name = pd_storm_physicist_drone
+			desc = job_pd_storm_physicist_drone_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_supercontinent
+				num_zones = { type = zone_pd_supercontinent_lab value > 0 }
+			}
+			name = pd_supercontinent_tectonics_scholar_drone
+			desc = job_pd_supercontinent_tectonics_scholar_drone_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+	}
+
+	tags = { research }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { can_think = yes }
+
+	resources = {
+		category = planet_physicists
+		produces = {
+			trigger = {
+				colony? = {
+					physicist_is_extradimensional_research_unit_trigger = no
+				}
+			}
+			physics_research = 3
+		}
+		produces = {
+			trigger = {
+				colony? = {
+					physicist_is_astrometeorologist_trigger = yes
+					solar_system? = {
+						OR = {
+							has_environmental_effects = yes
+							has_star_flag = storm_system
+						}
+					}
+				}
+			}
+			physics_research = 2
+		}
+		produces = {
+			trigger = {
+				colony? = {
+					physicist_is_extradimensional_research_unit_trigger = yes
+				}
+			}
+			alloys = 2
+			minerals = 4
+			physics_research = 3
+			multiplier = colony.value:materiality_engine_produces_mult
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+				colony? = {
+					physicist_is_extradimensional_research_unit_trigger = no
+				}
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+				has_carrier_flag = has_science_ministry
+			}
+			energy = 1
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+			}
+			minerals = 4
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+				has_carrier_flag = has_science_ministry
+			}
+			minerals = 1.5
+		}
+		# Space-Time Researcher
+		produces = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+			}
+			physics_research = 1
+			sr_dark_matter = 0.2
+		}
+		upkeep = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+				owner? = { is_hive_empire = yes }
+			}
+			minerals = 4
+		}
+		upkeep = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+				owner? = { is_hive_empire = no }
+			}
+			energy = 3
+		}
+		# Extradimensional Research Unit
+		upkeep = {
+			trigger = {
+				colony? = {
+					physicist_is_extradimensional_research_unit_trigger = yes
+				}
+			}
+			sr_zro = 1
+		}
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_research
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+				}
+			}
+			physics_research = 1
+		}
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+					physicist_is_astrometeorologist_trigger = yes
+					solar_system? = {
+						OR = {
+							has_environmental_effects = yes
+							has_star_flag = storm_system
+						}
+					}
+				}
+			}
+			physics_research = 0.5
+		}
+	}
+
+	# Amenities
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_active_tradition = tr_discovery_faith_in_science }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Caregiver Paragon Effect
+	triggered_planet_modifier = {
+		potential = {
+			leader? = {
+				has_trait = leader_trait_nomadic_caregiver
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 150
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	inline_script = "jobs/academia_recruiter_naval_cap_add"
+
+	inline_script = "jobs/inf_navalcap_jobs"
+
+	weight = {
+		weight = @complex_drone_job_weight
+		mult = value:scripted_job_weight_shroud_forged_mult
+		modifier = {
+			factor = 0.9
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+}

@@ -10,7 +10,7 @@
  pc_pd_core_tap_desc: "This rocky world now hosts a vast network of machines burrowing into its core to extract primal energy, a testament to engineering prowess that has destroyed the planet's original ecosystem."
  pc_pd_core_tap_adj: "energetic"
  mod_pc_pd_core_tap_habitability: "Core Tap Habitability"
- trait_pc_pd_core_tap_preference: "Core Tap Prefernce"
+ trait_pc_pd_core_tap_preference: "Core Tap Preference"
  trait_pc_pd_core_tap_preference_desc: "$trait_pc_arctic_preference_desc$"
 
  #Decision
@@ -32,9 +32,9 @@
  #Planet Class
  pc_pd_agriworld: "Agriworld"
  pc_pd_agriworld_desc: "This rocky planet brims with endless industrial farming heavily relying on potent fertilizers, complex weather control, and advanced irrigation systems. While it sustains an unceasing bounty, it has replaced the planet's natural ecosystem."
- pc_pd_agriworld_adj: "agarian"
+ pc_pd_agriworld_adj: "agrarian"
  mod_pc_pd_agriworld_habitability: "Agriworld Habitability"
- trait_pc_pd_agriworld_preference: "Agriworld Prefernce"
+ trait_pc_pd_agriworld_preference: "Agriworld Preference"
  trait_pc_pd_agriworld_preference_desc: "$trait_pc_arctic_preference_desc$"
 
  #Decision
@@ -58,7 +58,7 @@
  pc_pd_stripmine_desc: "This planet is now an expanse of deep strip-mining operations, its surface crisscrossed by a labyrinth of industrial excavators and drill rigs. The natural ecosystem has been ruined in the ceaseless quest for resources."
  pc_pd_stripmine_adj: "mining"
  mod_pc_pd_stripmine_habitability: "Stripmine Habitability"
- trait_pc_pd_stripmine_preference: "Stripmine Prefernce"
+ trait_pc_pd_stripmine_preference: "Stripmine Preference"
  trait_pc_pd_stripmine_preference_desc: "$trait_pc_arctic_preference_desc$"
 
  #Decision

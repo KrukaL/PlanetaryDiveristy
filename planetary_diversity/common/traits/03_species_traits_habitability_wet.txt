@@ -13,10 +13,14 @@
 
 trait_pc_tropical_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_tropical_preference.dds"
+	short_name = "trait_pc_tropical_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
 		can_change_habitability_preference = yes
+	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
 	}
 	modifier = {
 		pc_tropical_habitability = @primary
@@ -43,10 +47,14 @@ trait_pc_tropical_preference = {
 
 trait_pc_continental_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_continental_preference.dds"
+	short_name = "trait_pc_continental_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
 		can_change_habitability_preference = yes
+	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
 	}
 	modifier = {
 		pc_continental_habitability = @primary
@@ -73,6 +81,7 @@ trait_pc_continental_preference = {
 
 trait_pc_ocean_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_ocean_preference.dds"
+	short_name = "trait_pc_ocean_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
@@ -96,7 +105,7 @@ trait_pc_ocean_preference = {
 
 		pc_pd_wet_gaia_habitability = 1.0
 	}
-	species_possible_remove = {
+	species_possible_merge_remove = {
 		NOT = { has_trait = trait_aquatic }
 	}
 	ai_weight = {

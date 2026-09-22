@@ -1,0 +1,378 @@
+namespace = pdbonefield
+
+#Fires the first time a ship enters the Bonefield system
+ship_event = {
+	id = pdbonefield.10
+	title = pdbonefield.10.name
+	desc = pdbonefield.10.desc
+	picture = GFX_evt_pd_bonefield
+	location = ROOT
+	show_sound = event_ship_bridge
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_star_flag = pd_bonefield_system
+		}
+		owner = {
+			NOT = {
+				has_country_flag = pd_bonefield_encounter
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = pd_bonefield_encounter
+		}
+	}
+
+	option = {
+		name = pdbonefield.10.a
+	}
+}
+
+#Fires when the Bonefield is surveyed. The second desc only shows to empires that have engaged with the vanilla Tiyun Ort dig.
+ship_event = {
+	id = pdbonefield.20
+	title = pdbonefield.20.name
+	picture = GFX_evt_pd_bonefield_surface
+	location = ROOT
+	show_sound = event_ship_bridge
+
+	is_triggered_only = yes
+
+	desc = {
+		text = pdbonefield.20.desc
+		trigger = {
+			owner = {
+				NOT = { has_event_chain = tiyanki_graveyard_chain }
+			}
+		}
+	}
+
+	desc = {
+		text = pdbonefield.20.desc.ort
+		trigger = {
+			owner = {
+				has_event_chain = tiyanki_graveyard_chain
+			}
+		}
+	}
+
+	trigger = {
+		from = {
+			has_planet_flag = pd_bonefield_planet
+		}
+		owner = {
+			NOT = {
+				has_country_flag = found_pd_bonefield_planet
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = found_pd_bonefield_planet
+		}
+	}
+
+	option = {
+		name = pdbonefield.20.a
+	}
+}
+
+#Colonization schedules the first fall; pdbonefield.30 lands it 1 to 5 years later
+carrier_event = {
+	id = pdbonefield.25
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { is_planet_class = pc_ark }	# arkship/ship carriers skip this planet event (4.4 nomads)
+		has_planet_flag = pd_bonefield_planet
+	}
+
+	immediate = {
+		carrier_event = {
+			id = pdbonefield.30
+			days = 365
+			random = 1460
+		}
+	}
+}
+
+#The first pilgrim comes down after colonization, opening the standing-policy situation
+carrier_event = {
+	id = pdbonefield.30
+	title = pdbonefield.30.name
+	desc = pdbonefield.30.desc
+	picture = GFX_evt_pd_bonefield_fall
+	location = from
+	show_sound = event_mystic_reveal
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { is_planet_class = pc_ark }	# arkship/ship carriers skip this planet event (4.4 nomads)
+		has_planet_flag = pd_bonefield_planet
+	}
+
+	option = {
+		name = pdbonefield.30.a
+		owner = {
+			start_situation = {
+				type = situation_pd_bonefield_flight
+				target = root
+			}
+		}
+	}
+}
+
+#Pilgrimage spawn. A dying tiyanki enters at the system edge and is ordered to the Bonefield; pdbonefield.110 resolves the arrival.
+country_event = {
+	id = pdbonefield.100
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_planet = {
+			planet = {
+				has_planet_flag = pd_bonefield_planet
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			60 = {
+				pd_create_bonefield_tiyanki_country_effect = yes
+				random_owned_planet = {
+					limit = {
+						planet = {
+							has_planet_flag = pd_bonefield_planet
+						}
+					}
+					solar_system = {
+						random_system_planet = {
+							limit = { is_star = yes }
+							save_event_target_as = pd_bonefield_star
+						}
+					}
+					event_target:pd_bonefield_tiyanki_country = {
+						create_fleet = {
+							name = "NAME_Tiyanki_Space_Whale"
+							settings = { spawn_debris = no }
+							effect = {
+								set_owner = event_target:pd_bonefield_tiyanki_country
+								create_ship = { design = "NAME_Tiyanki_Cow" }
+								create_ship = { design = "NAME_Tiyanki_Bull" }
+								set_location = {
+									target = event_target:pd_bonefield_star
+									distance = 260
+									angle = random
+								}
+								set_fleet_stance = passive
+								set_aggro_range_measure_from = return_point
+								set_aggro_range = 0
+								set_fleet_flag = NAME_Tiyanki_Space_Whale
+								set_fleet_flag = pd_bonefield_pilgrim
+								queue_actions = {
+									find_closest_planet = {
+										trigger = {
+											id = pd.bonefield.pilgrimage
+											has_carrier_flag = pd_bonefield_planet
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+										}
+									}
+								}
+							}
+						}
+					}
+					planet = {
+						planet_event = {
+							id = pdbonefield.110
+							days = 300
+							random = 100
+						}
+					}
+				}
+			}
+			40 = { }
+		}
+	}
+}
+
+#Pilgrimage resolution. Warded worlds turn the tiyanki away; the other two branches take the body and pay out.
+planet_event = {
+	id = pdbonefield.110
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		has_planet_flag = pd_bonefield_planet
+	}
+
+	immediate = {
+		solar_system = {
+			every_fleet_in_system = {
+				limit = {
+					has_fleet_flag = pd_bonefield_pilgrim
+				}
+				destroy_fleet = this
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_modifier = pd_bonefield_warded }
+			}
+			if = {
+				limit = {
+					NOT = { is_variable_set = pd_bonefield_corpses }
+				}
+				set_variable = {
+					which = pd_bonefield_corpses
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = pd_bonefield_corpses
+						value < 12
+					}
+				}
+				change_variable = {
+					which = pd_bonefield_corpses
+					value = 1
+				}
+				create_ambient_object = {
+					type = "small_dead_tiyanki_object"
+					location = this
+					use_3d_location = yes
+					entity_offset_angle = { min = 0 max = 360 }
+					entity_offset = { min = 8 max = 15 }
+					entity_offset_height = { min = -4 max = 4 }
+				}
+			}
+			if = {
+				limit = {
+					has_modifier = pd_bonefield_controlled
+				}
+				owner = {
+					add_resource = {
+						exotic_gases = 150
+						energy = 500
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_modifier = pd_bonefield
+				}
+				owner = {
+					add_monthly_resource_mult = {
+						resource = society_research
+						value = @tier2researchreward
+						min = @tier2researchmin
+						max = @tier2researchmax
+					}
+					add_resource = {
+						unity = 250
+					}
+				}
+			}
+			owner = {
+				create_message = {
+					type = MESSAGE_PD_TIYANKI_FALL
+					localization = MESSAGE_PD_TIYANKI_FALL_DESC
+					days = 30
+					target = root
+					variable = {
+						type = name
+						localization = PLANET
+						scope = root
+					}
+				}
+			}
+		}
+	}
+}
+
+#End of stage 1. The tech exists; the empire picks what to build with it. Stage 2 builds it.
+situation_event = {
+	id = pdbonefield.120
+	title = pdbonefield.120.name
+	desc = pdbonefield.120.desc
+	picture = GFX_evt_pd_bonefield_surface
+	location = from
+	show_sound = event_mystic_reveal
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = pdbonefield.120.a
+		custom_tooltip = pdbonefield.120.a.tooltip
+		set_situation_flag = pd_bonefield_path_control
+	}
+
+	option = {
+		name = pdbonefield.120.b
+		custom_tooltip = pdbonefield.120.b.tooltip
+		set_situation_flag = pd_bonefield_path_stop
+	}
+}
+
+#Situation completion. Stage 2 finished, so the path chosen at stage 1 becomes the permanent modifier.
+situation_event = {
+	id = pdbonefield.130
+	title = pdbonefield.130.name
+	desc = pdbonefield.130.desc
+	picture = GFX_evt_pd_bonefield_fall
+	location = from
+	show_sound = event_mystic_reveal
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_situation_flag = pd_bonefield_path_stop
+			}
+			target = {
+				remove_modifier = pd_bonefield
+				add_modifier = {
+					modifier = pd_bonefield_warded
+					days = -1
+				}
+				set_planet_flag = pd_bonefield_choice_made
+			}
+		}
+		else = {
+			target = {
+				remove_modifier = pd_bonefield
+				add_modifier = {
+					modifier = pd_bonefield_controlled
+					days = -1
+				}
+				set_planet_flag = pd_bonefield_choice_made
+			}
+		}
+	}
+
+	option = {
+		name = pdbonefield.130.a
+		destroy_situation = this
+	}
+}

@@ -5,6 +5,7 @@ trait_pd_acean_resonators = {
 	category = robotic
 
 	allowed_archetypes = { ROBOT MACHINE }
+	tags = { machine positive pop_growth upkeep energy }
 
 	species_potential_add = {
 		always = yes
@@ -34,11 +35,23 @@ trait_pd_acean_resonators = {
 
 	modifier = {
 		planet_pop_assembly_mult = 0.2
-		planet_pop_assembly_reduction = 0.2
+		planet_pop_assembly_reduction = -0.2
 	}
 
 	slave_cost = {
 		trade = 1000
+	}
+
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				is_being_purged = no
+				is_sapient = yes
+			}
+			energy = -1
+			sr_acean = 0.01
+		}
 	}
 
 	custom_tooltip_with_modifiers = trait_pd_acean_resonators_tt
@@ -50,6 +63,7 @@ trait_unit_04_children = {
 	category = robotic
 
 	allowed_archetypes = { ROBOT MACHINE }
+	tags = { machine positive leader pop_growth pop_output upkeep }
 
 	species_potential_add = {
 		from = {
@@ -79,6 +93,17 @@ trait_unit_04_children = {
 
 	slave_cost = {
 		trade = 750
+	}
+
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				is_being_purged = no
+				is_sapient = yes
+			}
+			sr_living_metal = 0.01
+		}
 	}
 
 	custom_tooltip_with_modifiers = trait_unit_04_children_tt
@@ -124,10 +149,7 @@ trait_biosynth = {
 		}
 		upkeep = {
 			trigger = {
-				OR = {
-					has_trait = trait_cybernetic
-					has_trait = trait_limited_cybernetic
-				}
+				has_trait = trait_cybernetic
 				is_being_purged = no
 				is_sapient = yes
 			}

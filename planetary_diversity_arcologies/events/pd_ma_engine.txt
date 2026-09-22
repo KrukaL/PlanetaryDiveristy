@@ -48,7 +48,7 @@ carrier_event = {
 	}
 }
 
-# #This checks which empire controls an Arcology, swithes modifiers
+# #This checks which empire controls an Arcology, switches modifiers
 #No LONGER NEEDED
 # planet_event = {
 # 	id = pdmaengine.30

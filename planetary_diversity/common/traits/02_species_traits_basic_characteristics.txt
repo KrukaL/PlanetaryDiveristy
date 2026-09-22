@@ -253,10 +253,7 @@ trait_organic = {
 		}
 		upkeep = {
 			trigger = {
-				OR = {
-					has_trait = trait_cybernetic
-					has_trait = trait_limited_cybernetic
-				}
+				has_trait = trait_cybernetic
 				is_being_purged = no
 				is_sapient = yes
 			}
@@ -322,10 +319,7 @@ trait_lithoid = {
 		}
 		upkeep = {
 			trigger = {
-				OR = {
-					has_trait = trait_cybernetic
-					has_trait = trait_limited_cybernetic
-				}
+				has_trait = trait_cybernetic
 				is_being_purged = no
 				is_sapient = yes
 			}

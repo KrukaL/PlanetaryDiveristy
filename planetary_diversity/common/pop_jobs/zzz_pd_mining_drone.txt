@@ -1,0 +1,254 @@
+mining_drone = {
+	category = simple_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_mineral_purification_plant
+		}
+		#Scrapper Drones - d_space_ship_graveyard + shattered_ring_world
+		swap_type = {
+			trigger = {
+				OR = {
+					has_deposit = d_space_ship_graveyard
+					is_planet_class = pc_shattered_ring_habitable
+				}
+			}
+			name = scrap_miner_drone
+			desc = scrap_miner_drone
+			building_icon = building_mineral_purification_plant
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				miner_is_crystal_miner_trigger = yes
+			}
+			icon = crystal_mining_drone
+			name = crystal_mining_drone
+			desc = crystal_mining_drone
+			building_icon = building_crystal_mines
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = grubsymbiont
+			desc = grubsymbiont
+			icon = grubsymbiont
+			building_icon = churning_tunnels_3
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				miner_is_thermoforger_trigger = yes
+			}
+			icon = mining_drone
+			name = melt_extractor_drone
+			desc = melt_extractor_drone
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_cave = yes
+				num_zones = { type = zone_pd_cave_mine value > 0 }
+			}
+			name = pd_cave_karst_delver_drone
+			desc = job_pd_cave_karst_delver_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_glaciovolcanic
+				num_zones = { type = zone_pd_glaciovolcanic_mine value > 0 }
+			}
+			name = pd_glaciovolcanic_tephra_quarrier_drone
+			desc = job_pd_glaciovolcanic_tephra_quarrier_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_mine value > 0 }
+			}
+			name = pd_lanthanide_miner_drone
+			desc = job_pd_lanthanide_miner_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_megaflora
+				num_zones = { type = zone_pd_megaflora_mine value > 0 }
+			}
+			name = pd_megaflora_rootbreaker_drone
+			desc = job_pd_megaflora_rootbreaker_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_petrified
+				num_zones = { type = zone_pd_petrified_mine value > 0 }
+			}
+			name = pd_petrified_fossil_quarrier_drone
+			desc = job_pd_petrified_fossil_quarrier_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_primal
+				num_zones = { type = zone_pd_primal_mine value > 0 }
+			}
+			name = pd_primal_bonebed_quarrier_drone
+			desc = job_pd_primal_bonebed_quarrier_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_mine value > 0 }
+			}
+			name = pd_reef_coral_harvester_drone
+			desc = job_pd_reef_coral_harvester_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_salt
+				num_zones = { type = zone_pd_salt_mine value > 0 }
+			}
+			name = pd_salt_harvester_drone
+			desc = job_pd_salt_harvester_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_mine value > 0 }
+			}
+			name = pd_sinkhole_quarrier_drone
+			desc = job_pd_sinkhole_quarrier_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_storm
+				num_zones = { type = zone_pd_storm_mine value > 0 }
+			}
+			name = pd_storm_stormbed_quarrier_drone
+			desc = job_pd_storm_stormbed_quarrier_drone_desc
+			icon = miner
+			building_icon = building_mining_1
+			weight = 200
+		}
+	}
+
+	tags = { minerals strategic_resource }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+	possible = { simple_drone_trigger = yes }
+
+	resources = {
+		category = planet_miners
+		produces = {
+			trigger = {
+				colony? = {
+					NOR = {
+						has_deposit = d_space_ship_graveyard
+						is_planet_class = pc_shattered_ring_habitable
+					}
+				}
+			}
+			minerals = 4
+		}
+		produces = {
+			trigger = {
+				colony? = {
+					OR = {
+						has_deposit = d_space_ship_graveyard
+						is_planet_class = pc_shattered_ring_habitable
+					}
+				}
+			}
+			minerals = 2
+			alloys = 1
+		}
+		produces = {
+			trigger = {
+				has_carrier_flag = has_material_requisitorium
+			}
+			minerals = @requisitorium_minerals_reduction
+		}
+		# Job Swap - Thermoforger
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			minerals = 1
+			alloys = 0.5
+		}
+		upkeep = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			energy = 1
+		}
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_minerals
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_material_requisitorium
+				}
+			}
+			minerals = @requisitorium_minerals_overlord
+		}
+	}
+
+	weight = {
+		weight = @simple_drone_job_weight
+		modifier = {
+			factor = 1.1
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
+
+}

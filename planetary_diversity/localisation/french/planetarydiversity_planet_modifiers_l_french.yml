@@ -317,7 +317,7 @@ pd_dry_gaia_world_desc: "Un monde idéalement créé sec avec une atmosphère d'
 pd_cold_gaia_world: "Monde Gaïa Gelé"
 pd_cold_gaia_world_desc: "Un monde idéalement créé gelé avec une atmosphère d'azote et d'oxygène et un écosystème résilient. Conditions optimales pour toutes les formes de vie supérieures connues à différentes latitudes."
 pd_uncommon_gaia_world: "Monde Gaïa"
-pd_uncommongaia_world_desc: "Un monde idéalement créé humide avec une atmosphère d'azote et d'oxygène et un écosystème résilient. Conditions optimales pour toutes les formes de vie supérieures connues à différentes latitudes."
+pd_uncommon_gaia_world_desc: "Un monde idéalement créé humide avec une atmosphère d'azote et d'oxygène et un écosystème résilient. Conditions optimales pour toutes les formes de vie supérieures connues à différentes latitudes."
 
  #Arcology/Relic
 pc_pd_nuked_arcology: "Monde Relique Irradié"

@@ -359,15 +359,15 @@ entity = {
 	##cloud texture override
 	meshsettings = {
 	name = "clouds_geosphereShape"
-	texture_diffuse = "clouds_storm_diffuse.dds"
-	texture_normal = "clouds_storm_normal.dds"
-	texture_specular = "clouds_storm_specular.dds"
+	texture_diffuse = "pd_clouds_storm_diffuse.dds"
+	texture_normal = "pd_clouds_storm_normal.dds"
+	texture_specular = "pd_clouds_storm_specular.dds"
 	}
 
 	##cloud shadow texture override
 	meshsettings = {
 	name = "clouds_shadow_geosphereShape"
-	texture_diffuse = "clouds_storm_shadow_diffuse.dds"
+	texture_diffuse = "pd_clouds_storm_shadow_diffuse.dds"
 	texture_normal = "nonormal.dds"
 	texture_specular = "nospec.dds"
 	}
@@ -387,9 +387,9 @@ entity = {
 
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "geothermal_01_diffuse.dds"
-	texture_normal = "geothermal_01_normal.dds"
-	texture_specular = "geothermal_01_spec.dds"
+	texture_diffuse = "pd_geothermal_01_diffuse.dds"
+	texture_normal = "pd_geothermal_01_normal.dds"
+	texture_specular = "pd_geothermal_01_spec.dds"
 	}
 
 	##cloud texture override

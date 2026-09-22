@@ -3,7 +3,7 @@
 #Flooded/Aquatic Planets
  decision_pd_aw_flood_planet: "Expand Planetary Sea"
  decision_pd_aw_flood_planet_desc: "This oceanic planet has the potential to be an ideal home for our people. By adjusting sea levels and moving cities underwater, we can ensure that life flourishes for those adapted to live beneath the waves."
- decision_pd_aw_flood_planet_tooltip: "Ice will be harvested from a systems with an §Y$sm_ice_mining_station$§!\n§Y$pd_aw_flooded_planet$§! modifer added:\n$pd_aw_flooded_planet_tooltip$"
+ decision_pd_aw_flood_planet_tooltip: "Ice will be harvested from a systems with an §Y$sm_ice_mining_station$§!\n§Y$pd_aw_flooded_planet$§! modifier added:\n$pd_aw_flooded_planet_tooltip$"
  flooded_planet_tooltip: "$MOD_PLANET_MAX_DISTRICTS_ADD$: §G+3§!\n$MOD_LOGISTIC_GROWTH_MULT$: §G+10%§!\n$mod_planet_jobs_produces_mult$: §G+5%§!\n§YNon-Aquatic§! Habitability: §R-20%§!"
  decision_pd_aw_unflood_planet: "Unflood Planet"
  decision_pd_aw_unflood_planet_desc: "This oceanic planet has the potential to be an ideal home for our people. By lowering sea levels and moving cities to islands, we can ensure that life flourishes for those adapted to live above the waves."
@@ -14,10 +14,11 @@
  decision_pd_aw_unflood_habitat: "Unflood Habitat"
  decision_pd_aw_unflood_habitat_desc: "This habitat has the potential to be an ideal home for our people. By draining this habitat, we can ensure that life flourishes for those adapted to live above the waves."
  decision_pd_aw_flood_habitat_tooltip: "Habitability: §R-20%§!\nConsidered an §YOcean§! world for §YAquatic§! species.\nIce will be harvested from a system with an §Y$sm_ice_mining_station$§! on the starbase."
+ ap_hydrocentric_tooltip "Allows the construction of §YIce Mining Stations§! on starbases, which enable the following decisions:\n    - §Y$decision_pd_aw_flood_planet$§!: §Y$pc_ocean$§!, §Y$pc_gaia$§!, §Y$pc_hive$§!, §Y$pc_machine$§!, §Y$pc_relic$§!, §Y$pc_city$§!\n    - §Y$decision_flood_habitat$§!: §Y$pc_habitat$§!\n    - §Y$decision_pd_aw_flood_ringworld$§!: §Y$pc_ringworld_habitable$§!\n§RNo other planet class can be flooded.§!\nSpecies with the §Y$trait_aquatic$§! or §Y$trait_robot_aquatic$§! trait gain 50% greater benefits for living on §YOcean§! worlds, but penalties for living on non-§YWet§! worlds are likewise amplified."
 
  flooded_habitat: "Flooded"
  flooded_habitat_desc: "Engulfed by water, this world is an idyllic environment for aquatic denizens."
- pd_aw_flooded_planet_tooltip: "$MOD_PLANET_MAX_DISTRICTS_ADD$: §G+3§!\n$MOD_LOGISTIC_GROWTH_MULT$: §G+10%§!\n$mod_planet_jobs_produces_mult$: §G+5%§!\n§YNon-Aquatic§! Habitability: §R-20%§!"
+ pd_aw_flooded_planet_tooltip: "$MOD_PLANET_MAX_DISTRICTS_ADD$: §G+3§!\n$MOD_LOGISTIC_GROWTH_MULT$: §G+10%§!\n$mod_planet_jobs_produces_mult$: §G+5%§!\n§YNon-Aquatic§! Habitability: §R-20%§!\n$MOD_PLANET_ORBITAL_BOMBARDMENT_DAMAGE$: §G-10%§!"
 
  pd_aw_flooded_planet: "Flooded World"
  pd_aw_flooded_planet_desc: "This oceanic planet is an ideal home for aquatic species. Life flourishes for those adapted to live beneath the waves."

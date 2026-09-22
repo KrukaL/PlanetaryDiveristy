@@ -1,0 +1,9 @@
+objectTypes = {
+	# Scaled-down copy of the vanilla gibbed elder so the occasional huge carcass in the Bonefield belt is not leviathan-sized.
+	pdxmesh = {
+		name = "pd_bonefield_elder_carcass_mesh"
+		file = "gfx/models/ships/guardians/elder_tiyanki/leviathan_01_elder_tiyanki_gibbed.mesh"
+		scale = 0.35
+		cull_distance = 99999999.0f
+	}
+}

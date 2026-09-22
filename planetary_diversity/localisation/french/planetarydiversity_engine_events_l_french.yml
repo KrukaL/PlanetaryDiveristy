@@ -2,7 +2,7 @@
 
 ###Terraforming Event
  pdengine.21.name: "Terraformation terminée"
- pdengine.21.desc: "Alors que nous terminons la terraformation de §Y[From.GetName]§, nous avons l'opportunité de choisir le nouveau biome de cette  planète."
+ pdengine.21.desc: "Alors que nous terminons la terraformation de §Y[From.GetName]§!, nous avons l'opportunité de choisir le nouveau biome de cette  planète."
  pdengine.21.continental: "$pc_continental$"
  pdengine.21.retinal: "$pc_pd_retinal$"
  pdengine.21.lake: "$pc_pd_lake$"
@@ -119,14 +119,14 @@
 
 ###Gaia Terraforming Event
 pdengine.24.name: "Terraformation Gaia terminée"
-pdengine.24.desc: "Alors que nous terminons la terraformation de §Y[Root.GetName]§, nous avons l'opportunité de choisir le nouveau biome de ce monde idéal."
+pdengine.24.desc: "Alors que nous terminons la terraformation de §Y[Root.GetName]§!, nous avons l'opportunité de choisir le nouveau biome de ce monde idéal."
 pdengine.24.wet_gaia: "$pc_pd_wet_gaia$"
 pdengine.24.dry_gaia: "$pc_pd_dry_gaia$"
 pdengine.24.cold_gaia: "$pc_pd_cold_gaia$"
 
 ###Life Seeded Choice Event
  pdengine.90.name: "$civic_life_seeded$ Biome"
- pdengine.90.desc: "Notre peuple a évolué sur ce paradis planétaire que nous appelons §Y[Capital_scope.GetName]§. Quel biome est notre monde natal?"
+ pdengine.90.desc: "Notre peuple a évolué sur ce paradis planétaire que nous appelons §Y[Capital_scope.GetName]§!. Quel biome est notre monde natal?"
  pdengine.90.wet_gaia: "$pc_pd_wet_gaia$"
  pdengine.90.dry_gaia: "$pc_pd_dry_gaia$"
  pdengine.90.cold_gaia: "$pc_pd_cold_gaia$"

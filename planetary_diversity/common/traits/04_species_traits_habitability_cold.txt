@@ -13,10 +13,14 @@
 
 trait_pc_arctic_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_arctic_preference.dds"
+	short_name = "trait_pc_arctic_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
 		can_change_habitability_preference = yes
+	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
 	}
 	modifier = {
 		pc_arctic_habitability = @primary
@@ -43,10 +47,14 @@ trait_pc_arctic_preference = {
 
 trait_pc_tundra_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_tundra_preference.dds"
+	short_name = "trait_pc_tundra_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
 		can_change_habitability_preference = yes
+	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
 	}
 	modifier = {
 		pc_tundra_habitability = @primary
@@ -73,10 +81,14 @@ trait_pc_tundra_preference = {
 
 trait_pc_alpine_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_alpine_preference.dds"
+	short_name = "trait_pc_alpine_preference_short"
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT LITHOID }
 	sorting_priority = 30
 	species_potential_add = {
 		can_change_habitability_preference = yes
+	}
+	species_possible_add = {
+		can_take_non_ocean_planet_preference = yes
 	}
 	modifier = {
 		pc_alpine_habitability = @primary

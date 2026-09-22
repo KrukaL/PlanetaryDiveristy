@@ -105,7 +105,7 @@ pd_biosynth_engineer_drone = {
 		is_sapient = yes
 	}
 
-	possible_precalc = can_fill_specialist_job
+	possible_precalc = can_fill_drone_job
 
 	possible = { can_think = yes }
 
@@ -222,6 +222,12 @@ pd_biosynth_cultivator = {
 		}
 		bonus_pop_growth = 4
 	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = { NOT = { has_deficit = sr_living_metal } }
+		}
+		fake_pop_growth_mod = 4
+	}
 	triggered_planet_pop_group_modifier_for_species = {
 		potential = {
 			has_trait = trait_biosynth
@@ -231,6 +237,15 @@ pd_biosynth_cultivator = {
 			}
 		}
 		bonus_pop_growth = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				NOT = { has_deficit = sr_living_metal }
+				has_tradition = pd_tr_biosynth_perk_2a
+			}
+		}
+		fake_pop_growth_mod = 2
 	}
 
 	resources = {
@@ -277,7 +292,7 @@ pd_biosynth_cultivator_drone = {
 		is_sapient = yes
 	}
 
-	possible_precalc = can_fill_specialist_job
+	possible_precalc = can_fill_drone_job
 	possible = { can_think = yes }
 
 	triggered_planet_pop_group_modifier_for_species = {
@@ -286,6 +301,12 @@ pd_biosynth_cultivator_drone = {
 			owner = { NOT = { has_deficit = sr_living_metal } }
 		}
 		bonus_pop_growth = 4
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = { NOT = { has_deficit = sr_living_metal } }
+		}
+		fake_pop_growth_mod = 4
 	}
 	triggered_planet_pop_group_modifier_for_species = {
 		potential = {
@@ -296,6 +317,15 @@ pd_biosynth_cultivator_drone = {
 			}
 		}
 		bonus_pop_growth = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				NOT = { has_deficit = sr_living_metal }
+				has_tradition = pd_tr_biosynth_perk_2a
+			}
+		}
+		fake_pop_growth_mod = 2
 	}
 
 	resources = {

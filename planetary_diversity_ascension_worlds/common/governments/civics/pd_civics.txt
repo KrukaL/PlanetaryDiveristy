@@ -4,7 +4,7 @@
 #	possible = {}								# requirements list, see ../readme_requirements.txt
 #	pickable_at_start = yes / no				# default: yes
 #	modification = {							# ( modification = yes/no) | Can be a set of two triggers:
-#		moddable_conditions_custom_tooltip = loc# Used for localizaton when add or remove is not set but the other one is (replaces CIVIC_NOT_MODDABLE)
+#		moddable_conditions_custom_tooltip = loc# Used for localization when add or remove is not set but the other one is (replaces CIVIC_NOT_MODDABLE)
 #		add = {}								# add to check if can be added later under certain conditions
 #		remove = {}								# remove to check if can be removed later under certain conditions
 #	}

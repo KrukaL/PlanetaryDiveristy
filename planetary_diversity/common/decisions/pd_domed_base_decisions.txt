@@ -2,6 +2,11 @@
 # Decisions
 ##########################################################################
 
+# To Any Modders: set the planet flag pd_block_planetary_outpost on a body to hide the outpost
+# decisions for it. The pd_domed_*_site_* modifier stays put, so clearing the flag restores the
+# decision. The flag is checked on the body being built on, never on the planet enacting the
+# decision, so a blocked moon does not stop the others in the system. PD never sets this flag.
+
 # Build Dome-Base Hub
 decision_build_solar_system_network_hub = {
 	icon = decision_build_moonbase
@@ -121,6 +126,7 @@ decision_change_moon_base = {
 		exists = space_owner
 		space_owner = { is_same_value = from }
 		pd_has_domed_moon_base_modifier = yes
+		NOT = { has_planet_flag = pd_block_planetary_outpost }
 	}
 
 	effect = {
@@ -180,6 +186,7 @@ decision_build_pd_moon_base = {
 	allow = {
 		any_moon = {
 			has_modifier = pd_domed_moonbase_site_1
+			NOT = { has_planet_flag = pd_block_planetary_outpost }
 		}
 		owner = {
 			has_technology = tech_pd_domed_colonies
@@ -190,6 +197,7 @@ decision_build_pd_moon_base = {
 		exists = owner
 		any_moon = {
 			has_modifier = pd_domed_moonbase_site_1
+			NOT = { has_planet_flag = pd_block_planetary_outpost }
 		}
 		owner = {
 			has_technology = tech_pd_domed_colonies
@@ -211,6 +219,7 @@ decision_build_pd_moon_base = {
 		every_moon = {
 			limit = {
 				has_modifier = pd_domed_moonbase_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 			custom_tooltip = MAKE_MOON_BASES
 			hidden_effect = {
@@ -284,6 +293,7 @@ decision_build_pd_moon_base_moon_colony = {
 		orbit = {
 			any_moon = {
 				has_modifier = pd_domed_moonbase_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -298,6 +308,7 @@ decision_build_pd_moon_base_moon_colony = {
 		orbit = {
 			any_moon = {
 				has_modifier = pd_domed_moonbase_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -321,6 +332,7 @@ decision_build_pd_moon_base_moon_colony = {
 			every_moon = {
 				limit = {
 					has_modifier = pd_domed_moonbase_site_1
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_MOON_BASES
 				hidden_effect = {
@@ -355,6 +367,7 @@ decision_build_pd_mining_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -368,6 +381,7 @@ decision_build_pd_mining_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -391,6 +405,7 @@ decision_build_pd_mining_base = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_mining_site_1
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_MINIG_BASES
 				hidden_effect = {
@@ -427,6 +442,7 @@ decision_build_pd_mining_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -440,6 +456,7 @@ decision_build_pd_mining_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -463,6 +480,7 @@ decision_build_pd_mining_base_2 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_mining_site_2
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_MINIG_BASES
 				hidden_effect = {
@@ -499,6 +517,7 @@ decision_build_pd_mining_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -512,6 +531,7 @@ decision_build_pd_mining_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_mining_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -535,6 +555,7 @@ decision_build_pd_mining_base_3 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_mining_site_3
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_MINIG_BASES
 				hidden_effect = {
@@ -571,6 +592,7 @@ decision_build_pd_food_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -584,6 +606,7 @@ decision_build_pd_food_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -607,6 +630,7 @@ decision_build_pd_food_base = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_food_site_1
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_FOOD_BASES
 				hidden_effect = {
@@ -643,6 +667,7 @@ decision_build_pd_food_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -656,6 +681,7 @@ decision_build_pd_food_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -679,6 +705,7 @@ decision_build_pd_food_base_2 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_food_site_2
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_FOOD_BASES
 				hidden_effect = {
@@ -715,6 +742,7 @@ decision_build_pd_food_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -728,6 +756,7 @@ decision_build_pd_food_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_food_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -751,6 +780,7 @@ decision_build_pd_food_base_3 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_food_site_3
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_FOOD_BASES
 				hidden_effect = {
@@ -787,6 +817,7 @@ decision_build_pd_energy_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -800,6 +831,7 @@ decision_build_pd_energy_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -823,6 +855,7 @@ decision_build_pd_energy_base = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_energy_site_1
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_ENERGY_BASES
 				hidden_effect = {
@@ -859,6 +892,7 @@ decision_build_pd_energy_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -872,6 +906,7 @@ decision_build_pd_energy_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -895,6 +930,7 @@ decision_build_pd_energy_base_2 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_energy_site_2
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_ENERGY_BASES
 				hidden_effect = {
@@ -931,6 +967,7 @@ decision_build_pd_energy_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -944,6 +981,7 @@ decision_build_pd_energy_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_energy_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -967,6 +1005,7 @@ decision_build_pd_energy_base_3 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_energy_site_3
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_ENERGY_BASES
 				hidden_effect = {
@@ -1003,6 +1042,7 @@ decision_build_pd_research_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1016,6 +1056,7 @@ decision_build_pd_research_base = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_1
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1039,6 +1080,7 @@ decision_build_pd_research_base = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_research_site_1
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_RESEARCH_BASES
 				hidden_effect = {
@@ -1075,6 +1117,7 @@ decision_build_pd_research_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1088,6 +1131,7 @@ decision_build_pd_research_base_2 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_2
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1111,6 +1155,7 @@ decision_build_pd_research_base_2 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_research_site_2
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_RESEARCH_BASES
 				hidden_effect = {
@@ -1147,6 +1192,7 @@ decision_build_pd_research_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1160,6 +1206,7 @@ decision_build_pd_research_base_3 = {
 		solar_system = {
 			any_system_planet = {
 				has_modifier = pd_domed_research_site_3
+				NOT = { has_planet_flag = pd_block_planetary_outpost }
 			}
 		}
 		owner = {
@@ -1183,6 +1230,7 @@ decision_build_pd_research_base_3 = {
 			random_system_planet = {
 				limit = {
 					has_modifier = pd_domed_research_site_3
+					NOT = { has_planet_flag = pd_block_planetary_outpost }
 				}
 				custom_tooltip = MAKE_RESEARCH_BASES
 				hidden_effect = {

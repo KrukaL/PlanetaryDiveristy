@@ -9,7 +9,7 @@ entity = {
 
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "mesa_01_diffuse.dds"
+	texture_diffuse = "pd_mesa_01_diffuse.dds"
 	texture_normal = "arid_01_normal.dds"
 	texture_specular = "arid_01_spec.dds"
 	}
@@ -160,7 +160,7 @@ entity = {
 
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "primal_01_diffuse.dds"
+	texture_diffuse = "pd_primal_01_diffuse.dds"
 	texture_normal = "arid_03_normal.dds"
 	texture_specular = "arid_03_spec.dds"
 	}

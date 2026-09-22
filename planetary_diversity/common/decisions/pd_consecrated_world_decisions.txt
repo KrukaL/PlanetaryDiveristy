@@ -2,34 +2,161 @@
 # Decisions
 ##########################################################################
 
-# Consecrate World
+# Consecrate World. Vanilla decision, gaia branch widened to the PD gaia classes.
+@consecrate_cost_tier_1 = 500
+@consecrate_cost_tier_2 = 1000
+@consecrate_cost_tier_3 = 1500
+
 decision_consecrated_worlds = {
+	important = yes
 	resources = {
 		category = decisions
 		cost = {
-			unity = 500
+			trigger = {
+				from = {
+					check_variable = {
+						which = num_consecrated_worlds
+						value < 1
+					}
+				}
+			}
+			unity = @consecrate_cost_tier_1
+		}
+		cost = {
+			trigger = {
+				from = {
+					check_variable = {
+						which = num_consecrated_worlds
+						value = 1
+					}
+				}
+			}
+			unity = @consecrate_cost_tier_2
+		}
+		cost = {
+			trigger = {
+				from = {
+					check_variable = {
+						which = num_consecrated_worlds
+						value >= 2
+					}
+				}
+			}
+			unity = @consecrate_cost_tier_3
 		}
 	}
 
 	potential = {
-		exists = from
-		from = {
+		is_colony = no
+		from? = {
 			has_ascension_perk = ap_consecrated_worlds
 		}
-		exists = space_owner
-		space_owner = { is_same_value = from }
-		is_star = no
-		is_astral_scar = no
-		is_artificial = no
-		is_ringworld = no
 		NOR = {
 			has_planet_flag = consecrated@from
-			has_modifier = consecrated_quality_1
-			has_modifier = consecrated_quality_2
-			has_modifier = consecrated_quality_3
-			has_modifier = consecrated_quality_4
+			has_modifier = consecrated_world
 		}
-		NOT = { has_designation = col_nanotech_world }
+		space_owner? = {
+			is_same_value = from
+		}
+		OR = {
+			OR = {
+				is_planet_class = pc_gaia
+				pd_is_planet_class_pd_gaia = yes
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_ocean_world = yes
+				}
+				is_planet_class = pc_ocean
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_relic_world = yes
+				}
+				is_planet_class = pc_relic
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_tomb_world = yes
+				}
+				is_planet_class = pc_nuked
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_black_hole = yes
+				}
+				is_planet_class = pc_black_hole
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_astral_scar = yes
+				}
+				OR = {
+					is_planet_class = pc_rift_star
+					is_planet_class = pc_astral_scar
+				}
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_toxic_world = yes
+				}
+				OR = {
+					is_planet_class = pc_toxic
+					is_planet_class = pc_toxoid_star
+				}
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_orbital_habitat = yes
+				}
+				is_planet_class = pc_habitat
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_ring_segment = yes
+				}
+				OR = {
+					is_planet_class = pc_ringworld_habitable
+					is_planet_class = pc_shattered_ring_habitable
+				}
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_shrouded_world = yes
+				}
+				is_planet_class = pc_shrouded
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_molten_world = yes
+				}
+				is_planet_class = pc_molten
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_volcanic_world = yes
+				}
+				is_planet_class = pc_volcanic
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_nanite_world = yes
+				}
+				OR = {
+					is_planet_class = pc_nanotech
+					is_planet_class = pc_gray_goo
+				}
+			}
+			AND = {
+				space_owner = {
+					can_consecrate_living_sea_world = yes
+				}
+				has_modifier = living_sea
+			}
+		}
+		NOT = {
+			has_designation = col_nanotech_world
+		}
 	}
 
 	allow = {
@@ -43,19 +170,29 @@ decision_consecrated_worlds = {
 			fail_text = consecrated_worlds_too_many
 		}
 		custom_tooltip = {
-			NOT = { exists = owner }
+			NOT = {
+				exists = owner
+			}
 			fail_text = consecrated_worlds_planet_owned
+		}
+		custom_tooltip = {
+			is_consumed_by_action_in_progress = no
+			fail_text = consecrated_worlds_action_in_progress
 		}
 	}
 
 	effect = {
 		custom_tooltip = decision_consecrated_worlds_effects_custom
-		# determine quality tier, set variable
 		hidden_effect = {
 			set_planet_flag = consecrated@from
 			from = {
 				if = {
-					limit = { check_variable = { which = num_consecrated_worlds value < 1 }	}
+					limit = {
+						check_variable = {
+							which = num_consecrated_worlds
+							value < 1
+						}
+					}
 					set_variable = {
 						which = num_consecrated_worlds
 						value = 0
@@ -65,407 +202,62 @@ decision_consecrated_worlds = {
 					which = num_consecrated_worlds
 					value = 1
 				}
-				if = {
-					limit = {
-						check_variable = {
-							which = consecrated_variable
-							value < 1
-						}
-					}
-					set_variable = {
-						which = consecrated_variable
-						value = 0
-					}
-				}
 			}
 			if = {
 				limit = {
 					OR = {
-						has_planet_flag = holy_world_1
-						has_planet_flag = holy_world_2
-						has_planet_flag = holy_world_3
-						has_planet_flag = holy_world_4
+						has_carrier_flag = holy_world_1
+						has_carrier_flag = holy_world_2
+						has_carrier_flag = holy_world_3
+						has_carrier_flag = holy_world_4
 					}
-					any_country = { has_country_flag = fallen_empire_2 }
+					any_country = {
+						has_country_flag = fallen_empire_2
+					}
 				}
 				random_country = {
-					limit = { has_country_flag = fallen_empire_2 }
+					limit = {
+						has_country_flag = fallen_empire_2
+					}
 					add_opinion_modifier = {
 						who = from
 						modifier = opinion_worships_our_holy_world
 					}
 				}
 			}
+			add_modifier = {
+				modifier = consecrated_world
+				days = -1
+			}
+			# A body inside an Arc Furnace carries the aura on the megastructure instead.
 			if = {
 				limit = {
-					OR = {
-						is_planet_class = pc_asteroid
-						is_planet_class = pc_nuked
-						is_planet_class = pc_gas_giant
-						is_planet_class = pc_shielded
-						is_planet_class = pc_hive
-						is_planet_class = pc_machine
-						is_planet_class = pc_ai
-						is_planet_class = pc_city
-						is_planet_class = pc_relic
-					}
+					has_planet_flag = has_arc_furnace
 				}
-				custom_tooltip = consecrated_worlds_unsuitable
-				random_list = {
-					80 = {
-						modifier = {
-							factor = 10
-							OR = {
-								is_planet_class = pc_hive
-								is_planet_class = pc_machine
-								is_planet_class = pc_ai
-								is_planet_class = pc_city
-								is_planet_class = pc_relic
-							}
-						}
-						add_modifier = {
-							modifier = consecrated_quality_1
-							days = -1
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 1
-							}
-						}
-					}
-					20 = {
-						add_modifier = {
-							modifier = consecrated_quality_2
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_1_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 2
-							}
-						}
-					}
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_3
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_2_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 3
-							}
-						}
-					}
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_4
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_3_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 4
-							}
-						}
-					}
-				}
+				move_consecration_aura_to_furnace_effect = yes
 			}
-			else_if = {
-				limit = { uninhabitable_regular_planet = yes }
-				custom_tooltip = consecrated_worlds_unsuitable
-				random_list = {
-					10 = {
-						add_modifier = {
-							modifier = consecrated_quality_1
-							days = -1
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 1
-							}
-						}
-					}
-					70 = {
-						add_modifier = {
-							modifier = consecrated_quality_2
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_1_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 2
-							}
-						}
-					}
-					20 = {
-						modifier = {
-							add = 20
-							root.space_owner = {
-								has_origin = origin_toxic_knights
-							}
-							is_planet_class = pc_toxic
-						}
-						add_modifier = {
-							modifier = consecrated_quality_3
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_2_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 3
-							}
-						}
-					}
-					0 = {
-						modifier = {
-							add = 20
-							root.space_owner = {
-								has_origin = origin_toxic_knights
-							}
-							is_planet_class = pc_toxic
-						}
-						add_modifier = {
-							modifier = consecrated_quality_4
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_3_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 4
-							}
-						}
-					}
-				}
-			}
+			# Stars, habitats and ring segments cannot host the object.
 			else_if = {
 				limit = {
-					habitable_planet = yes
-					pd_is_planet_class_gaia = no
+					NOR = {
+						is_planet_class = pc_toxoid_star
+						is_planet_class = pc_rift_star
+						is_planet_class = pc_astral_scar
+						is_planet_class = pc_habitat
+						is_planet_class = pc_ringworld_habitable
+						is_planet_class = pc_shattered_ring_habitable
+					}
 				}
-				custom_tooltip = consecrated_worlds_suitable
-				random_list = {
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_1
-							days = -1
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 1
-							}
-						}
-					}
-					50 = {
-						add_modifier = {
-							modifier = consecrated_quality_2
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_1_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 2
-							}
-						}
-					}
-					40 = {
-						add_modifier = {
-							modifier = consecrated_quality_3
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_2_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 3
-							}
-						}
-					}
-					10 = {
-						add_modifier = {
-							modifier = consecrated_quality_4
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_3_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 4
-							}
-						}
-					}
+				create_ambient_object = {
+					type = consecrated_planet_stage_3_object
+					location = this
+					use_3d_location = yes
+					entity_scale_to_size = yes
+				}
+				last_created_ambient_object = {
+					set_ambient_object_flag = consecrated_world@root
 				}
 			}
-			else_if = {
-				limit = {
-					OR = {
-						pd_is_planet_class_gaia = yes
-						has_modifier = pd_uncommon_gaia_world
-					}
-				}
-				custom_tooltip = consecrated_worlds_perfect
-				random_list = {
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_1
-							days = -1
-						}
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 1
-							}
-						}
-					}
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_2
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_1_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 2
-							}
-						}
-					}
-					0 = {
-						add_modifier = {
-							modifier = consecrated_quality_3
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_2_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 3
-							}
-						}
-					}
-					100 = {
-						add_modifier = {
-							modifier = consecrated_quality_4
-							days = -1
-						}
-						create_ambient_object = {
-							type = consecrated_planet_stage_3_object
-							location = this
-
-							use_3d_location = yes
-							entity_scale_to_size = yes
-						}
-						from = {
-							change_variable = {
-								which = consecrated_variable
-								value = 4
-							}
-						}
-					}
-				}
-			}
-			# fallback
-			else = {
-				add_modifier = {
-					modifier = consecrated_quality_1
-					days = -1
-				}
-				from = {
-					change_variable = {
-						which = consecrated_variable
-						value = 1
-					}
-				}
-			}
-			# recalculate modifier
 			from = {
 				recalculate_consecrated_world_modifier = yes
 				country_event = { id = shroud.10850 } # Patron Objective Counter: po_consecrate_planet
@@ -481,7 +273,12 @@ decision_consecrated_worlds = {
 			NOT = {
 				space_owner = {
 					any_owned_species = {
-						prevprev = { habitability = { who = prev value > 0.35 }	}
+						prevprev = {
+							habitability = {
+								who = prev
+								value > 0.35
+							}
+						}
 					}
 				}
 			}

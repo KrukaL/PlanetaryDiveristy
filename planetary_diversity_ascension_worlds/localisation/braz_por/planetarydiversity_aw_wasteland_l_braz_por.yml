@@ -3,9 +3,12 @@
 ###Wasteland Planets
 #AP
  ap_pd_wasteland_worlds: "Industrialismo Não Regulado"
- ap_pd_wasteland_worlds_desc: "Em busca de uma produtividade sem restrições, devemos deixar de lado as limitações ambientais para desbloquear o verdadeiro potencial industrial do planeta."
+ ap_pd_wasteland_worlds_desc: "Em busca de uma produtividade sem restrições, devemos deixar de lado as limitações ambientais para desbloquear o verdadeiro potencial industrial do planeta. Disponível para um ['concept_pd_toxoid_empire']."
  allow_wasteland_worlds: "§YDesbloqueia Decisão:§! $decision_pd_aw_wasteland_planet$ em planetas não ideais"
  describe_wasteland_worlds: "§Y$decision_pd_aw_wasteland_planet$§! modificador:\n$t$- $MOD_HABITABILITY_CEIL$: §Y60%§!\n$t$- $mod_planet_jobs_alloys_produces_mult$: §G100%§!\n$t$- $mod_planet_jobs_consumer_goods_produces_mult$: §G100%§!"
+ concept_pd_toxoid_empire: "Império Toxoide"
+ concept_pd_toxoid_empires: "Impérios Toxoides"
+ concept_pd_toxoid_empire_desc: "$concept_pd_toxoid_empire$ é formado por impérios com \n- $TOX$ $SPECIES_CLASS$$NEW_LINE$- ['civic:civic_relentless_industrialists']$NEW_LINE$- ['civic:civic_corporate_relentless_industrialists']$NEW_LINE$- ['civic:civic_toxic_baths']$NEW_LINE$- ['civic:civic_hive_toxic_baths']$NEW_LINE$- ['civic:civic_machine_toxic_baths']$NEW_LINE$- ['civic:civic_corporate_toxic_baths']$NEW_LINE$- ['civic:origin_overtuned']"
 
 #Decisions
  decision_pd_aw_wasteland_planet: "Padrões Industriais Não Regulados"

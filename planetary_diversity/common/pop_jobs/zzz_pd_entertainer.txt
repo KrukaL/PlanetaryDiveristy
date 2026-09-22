@@ -1,0 +1,284 @@
+entertainer = {
+	category = specialist
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_holo_theatres
+		}
+		# Duelists
+		swap_type = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+				entertainer_is_storm_dancer_trigger = no
+			}
+			name = duelist
+			desc = duelist
+			icon = duelist
+			condition_string = BATTLE_THRALL_JOB_TRIGGER
+			weight = 5
+		}
+		# Storm Dancers
+		swap_type = {
+			trigger = {
+				entertainer_is_duelist_trigger = no
+				entertainer_is_storm_dancer_trigger = yes
+			}
+			name = storm_dancer
+			desc = storm_dancer
+			icon = storm_dancer
+			building_icon = building_storm_summoning_theater
+			weight = 5
+		}
+		# Curator
+		swap_type = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+			}
+			name = curator
+			desc = curator
+			icon = historical_curator
+			building_icon = aesthetic_wonders_holomuseum
+			weight = 10
+		}
+		# Storm Duelists
+		swap_type = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+				entertainer_is_storm_dancer_trigger = yes
+			}
+			name = storm_duelist
+			desc = storm_duelist
+			icon = duelist
+			building_icon = building_storm_summoning_theater
+			condition_string = BATTLE_THRALL_JOB_TRIGGER
+			weight = 20
+		}
+		# Reenactor
+		swap_type = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+				entertainer_is_curator_trigger = yes
+			}
+			name = reenactor
+			desc = reenactor
+			icon = duelist
+			building_icon = aesthetic_wonders_holomuseum
+			condition_string = BATTLE_THRALL_JOB_TRIGGER
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_aquifer
+				num_zones = { type = zone_pd_aquifer_resort value > 0 }
+			}
+			name = pd_aquifer_oasis_host
+			desc = job_pd_aquifer_oasis_host_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_archipelago
+				num_zones = { type = zone_pd_archipelago_resort value > 0 }
+			}
+			name = pd_archipelago_island_concierge
+			desc = job_pd_archipelago_island_concierge_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_biolumen
+				num_zones = { type = zone_pd_biolumen_resort value > 0 }
+			}
+			name = pd_biolumen_glowtour_guide
+			desc = job_pd_biolumen_glowtour_guide_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_coral
+				num_zones = { type = zone_pd_coral_resort value > 0 }
+			}
+			name = pd_coral_curator
+			desc = job_pd_coral_curator_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_cryoflora
+				num_zones = { type = zone_pd_cryoflora_resort value > 0 }
+			}
+			name = pd_cryoflora_aurora_guide
+			desc = job_pd_cryoflora_aurora_guide_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_glaciovolcanic
+				num_zones = { type = zone_pd_glaciovolcanic_resort value > 0 }
+			}
+			name = pd_glaciovolcanic_geyser_guide
+			desc = job_pd_glaciovolcanic_geyser_guide_desc
+			icon = entertainer
+			building_icon = building_commercial_zone
+			weight = 200
+		}
+	}
+
+	tags = { amenities unity }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		if = {
+			limit = {
+				entertainer_is_duelist_trigger = yes
+			}
+			battle_thrall_job_check_trigger = yes
+		}
+		else = {
+			entertainer_job_check_trigger = yes
+		}
+	}
+
+	resources = {
+		category = planet_entertainers
+		produces = {
+			unity = 0.5
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_duelist_trigger = no
+			}
+			consumer_goods = 1
+		}
+		# Job Swap - Curator
+		produces = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+			}
+			society_research = 0.5
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+				entertainer_is_duelist_trigger = no
+			}
+			consumer_goods = 1
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+				entertainer_is_duelist_trigger = yes
+			}
+			alloys = 0.5
+		}
+		# Job Swap - Duelist
+		produces = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+			}
+			unity = 0.5
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+				entertainer_is_storm_dancer_trigger = no
+			}
+			alloys = 0.5
+		}
+		# Job Swap - Storm Dancer
+		produces = {
+			trigger = {
+				entertainer_is_storm_dancer_trigger = yes
+			}
+			unity = 1.5
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_storm_dancer_trigger = yes
+				entertainer_is_duelist_trigger = no
+			}
+			consumer_goods = 1
+		}
+		upkeep = {
+			trigger = {
+				entertainer_is_storm_dancer_trigger = yes
+				entertainer_is_duelist_trigger = yes
+			}
+			alloys = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 1250
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			entertainer_is_duelist_trigger = yes
+		}
+		country_naval_cap_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_modifier = exploitation_accord }
+		}
+		planet_jobs_produces_mult = @accord_exploitation_resources_from_jobs
+	}
+
+	weight = {
+		weight = @high_prio_specialist_job_weight
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 3
+			has_trait = trait_robot_domestic_protocols
+			OR = {
+				is_non_sapient_robot = yes
+				is_shackled_robot = yes
+			}
+		}
+		modifier = {
+			factor = 0.1
+			is_domestic_servant = yes
+		}
+
+		modifier = {
+			factor = 50
+		}
+
+		modifier = {
+			add = 500
+			colony? = {
+				has_modifier = artistic_boom
+			}
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_charisma"
+
+}

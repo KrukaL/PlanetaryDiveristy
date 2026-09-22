@@ -21,3 +21,8 @@ concept_pd_necro_empire = {
 	alias = { concept_pd_necro_empires }
 	icon = "gfx/interface/icons/ascension_perks/ap_pd_necro_worlds.dds"
 }
+
+concept_pd_toxoid_empire = {
+	alias = { concept_pd_toxoid_empires }
+	icon = "gfx/interface/icons/ascension_perks/ap_pd_wasteland_worlds.dds"
+}

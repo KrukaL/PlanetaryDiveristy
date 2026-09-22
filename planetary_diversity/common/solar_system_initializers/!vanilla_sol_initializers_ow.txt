@@ -201,7 +201,9 @@ lost_colony_sol_neighbor_t1_first_colony = {
 			create_colony = {
 				owner = event_target:lost_colony_parent
 			}
-			generate_lost_colony_parent_colony_1 = yes
+			colony = {
+				generate_lost_colony_parent_colony_1 = yes
+			}
 			set_planet_flag = pd_alpha_centauri
 		}
 	}

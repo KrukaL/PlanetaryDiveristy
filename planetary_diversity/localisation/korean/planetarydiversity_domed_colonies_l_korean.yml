@@ -126,7 +126,7 @@
 #Technology
  tech_pd_domed_colonies: "돔형 거주지"
  tech_pd_domed_colonies_desc: "기술의 발전으로 이전에는 불가능했던 행성 변경에 돔형 식민지를 건설하는 것이 가능해졌습니다."
- allow_domed_colonies: "§HUnlocks Megastructures:§! §YDomed Colonies§!와 §YDomed Bases§!"
+ allow_domed_colonies: "§HUnlocks Megastructures:§! §YDomed Colonies§!와 §YPlanetary Outposts§!"
  allow_domed_colonies_DETAILS: "이 기술을 사용하면 일부 거주 불가능한 행성에 돔형 식민지와 기지를 건설할 수 있습니다."
 
 #Decisions

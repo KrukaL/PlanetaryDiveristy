@@ -272,3 +272,88 @@ pd_living_metal_ship_repair = {
 		}
 	}
 }
+
+#Tiyanki Parts - Bonefield World
+tiyanki_render_energy = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		upkeep = {
+			exotic_gases = 0.5
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	potential = {
+		has_technology = tech_tiyanki_butchery
+	}
+
+	modifier = {
+		planet_jobs_energy_produces_mult = 0.25
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+		modifier = {
+			factor = 0
+			resource_stockpile_compare = { resource = exotic_gases value < 500 }
+		}
+	}
+}
+tiyanki_bone_alloys = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		upkeep = {
+			exotic_gases = 0.5
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	potential = {
+		has_technology = tech_tiyanki_butchery
+	}
+
+	modifier = {
+		ship_armor_mult = 0.1
+		ship_armor_regen_add_perc = 0.2
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+		modifier = {
+			factor = 0
+			resource_stockpile_compare = { resource = exotic_gases value < 500 }
+		}
+	}
+}
+tiyanki_migration_study = {
+	length = @EdictDuration
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = rare_edicts
+		upkeep = {
+			exotic_gases = 0.5
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	potential = {
+		has_technology = tech_tiyanki_butchery
+	}
+
+	modifier = {
+		category_biology_research_speed_mult = 0.15
+		planet_researchers_produces_mult = 0.1
+	}
+
+	ai_weight = {
+		weight = @EdictMedPrio
+		modifier = {
+			factor = 0
+			resource_stockpile_compare = { resource = exotic_gases value < 500 }
+		}
+	}
+}

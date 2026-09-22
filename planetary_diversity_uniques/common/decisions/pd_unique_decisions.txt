@@ -281,3 +281,54 @@ decision_pd_add_biosynth_canal_system = {
         weight = 5
   	}
 }
+
+# Bonefield Decisions
+decision_pd_add_tiyanki_relic_bed = {
+	icon = decision_pd_add_tiyanki_relic_bed
+	owned_planets_only = yes
+
+	enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			exotic_gases = 2500
+			influence = 50
+		}
+	}
+
+	allow = {
+		owner = {
+			has_technology = tech_tiyanki_relic_beds
+		}
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_city
+			has_deposit = d_pd_bonefield_relic_bed
+			has_modifier = pd_bonefield
+			has_modifier = pd_bonefield_controlled
+			has_modifier = pd_bonefield_warded
+		}
+	}
+
+	potential = {
+		owner = {
+			has_technology = tech_tiyanki_relic_beds
+		}
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_city
+			has_deposit = d_pd_bonefield_relic_bed
+			has_modifier = pd_bonefield
+			has_modifier = pd_bonefield_controlled
+			has_modifier = pd_bonefield_warded
+		}
+	}
+
+	effect = {
+		add_deposit = d_pd_bonefield_relic_bed
+	}
+
+	ai_weight = {
+        weight = 5
+  	}
+}

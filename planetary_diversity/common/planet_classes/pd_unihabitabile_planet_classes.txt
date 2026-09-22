@@ -37,7 +37,7 @@ pc_subglacial = {
 	entity_scale = @planet_standard_scale
 	icon = GFX_planet_type_frozen
 	#appearance
-	picture = pc_subglacial
+	picture = pd_subglacial
 	atmosphere_color 		= hsv { 0.50 0.2 0.8 }
 	atmosphere_intensity 	= 1.0
 	atmosphere_width 		= 0.5

@@ -1,0 +1,173 @@
+fabricator = {
+	category = complex_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_foundry_1
+		}
+		#Alloy Drone - auth_hive
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_catalytic_empire = no
+					is_wilderness_empire = no
+				}
+			}
+			name = alloy_drone
+			desc = alloy_drone
+			icon = alloy_drone
+			building_icon = building_foundry_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 2
+		}
+		#Catalytic Drone - auth_hive
+		swap_type = {
+			trigger = {
+				owner? = { is_catalytic_empire = yes }
+			}
+			name = catalytic_drone
+			desc = catalytic_drone
+			icon = catalytic_drone
+			building_icon = building_foundry_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = forgesymbiont
+			desc = forgesymbiont
+			icon = forgesymbiont
+			building_icon = natural_furnace_3
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_archipelago
+				num_zones = { type = zone_pd_archipelago_foundry value > 0 }
+			}
+			name = pd_archipelago_tidal_smelter_drone
+			desc = job_pd_archipelago_tidal_smelter_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_geothermal
+				num_zones = { type = zone_pd_geothermal_foundry value > 0 }
+			}
+			name = pd_geothermal_slurry_refiner_drone
+			desc = job_pd_geothermal_slurry_refiner_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_glaciovolcanic
+				num_zones = { type = zone_pd_glaciovolcanic_foundry value > 0 }
+			}
+			name = pd_glaciovolcanic_obsidian_smelter_drone
+			desc = job_pd_glaciovolcanic_obsidian_smelter_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_iceberg
+				num_zones = { type = zone_pd_iceberg_foundry value > 0 }
+			}
+			name = pd_iceberg_glacial_smelter_drone
+			desc = job_pd_iceberg_glacial_smelter_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_primal
+				num_zones = { type = zone_pd_primal_foundry value > 0 }
+			}
+			name = pd_primal_forgesmith_drone
+			desc = job_pd_primal_forgesmith_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_salt
+				num_zones = { type = zone_pd_salt_foundry value > 0 }
+			}
+			name = pd_salt_brine_smelter_drone
+			desc = job_pd_salt_brine_smelter_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_superhabitable = yes
+				num_zones = { type = zone_pd_superhab_foundry value > 0 }
+			}
+			name = pd_superhab_gravitic_forgewright_drone
+			desc = job_pd_superhab_gravitic_forgewright_drone_desc
+			icon = foundry
+			building_icon = building_foundry_1
+			weight = 200
+		}
+	}
+
+	tags = { alloys }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { can_think = yes }
+
+	inline_script = "output/foundry_nomad_triggered_modifiers"
+
+	resources = {
+		category = planet_metallurgists
+		inline_script = "output/foundry_output"
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_alloys
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_material_requisitorium
+				}
+			}
+			alloys = @requisitorium_alloys_overlord
+		}
+	}
+
+	weight = {
+		weight = @complex_drone_job_weight
+		mult = value:scripted_job_weight_shroud_forged_mult
+		modifier = {
+			factor = 0.9
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+	inline_script = "jobs/automodding_priority_alloys"
+
+}

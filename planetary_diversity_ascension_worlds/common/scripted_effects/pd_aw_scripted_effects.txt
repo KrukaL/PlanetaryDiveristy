@@ -332,7 +332,7 @@ pd_aw_create_wasteland_world_effect = {
 	generate_pd_ascension_worlds_arc_portrait_effect = yes
 }
 
-#This changes the planet to the Aquaitc view
+#This changes the planet to the Aquatic view
 pd_aw_create_aquatic_world_effect = {
 	IF = {
 		limit = {
@@ -441,7 +441,7 @@ pd_aw_create_aquatic_world_effect = {
 	generate_pd_ascension_worlds_hive_arc_portrait_effect = yes
 }
 
-#This changes the planet to the Aquaitc view
+#This changes the planet to the Aquatic view
 pd_aw_create_aquatic_shroud_world_effect = {
 	IF = {
 		limit = {
@@ -670,7 +670,7 @@ generate_pd_florahive_arc_portrait_effect = {
 	}
 }
 
-#This adds the Ascenion World Views to the More Arcologies Classes
+#This adds the Ascension World Views to the More Arcologies Classes
 generate_pd_ascension_worlds_arc_portrait_effect = {
 	planet = {
 	#Shroud
@@ -1342,7 +1342,7 @@ pd_gaia_flooded_check = {
 	}
 }
 
-#This adds the Ascenion World Views to the More Arcologies Classes
+#This adds the Ascension World Views to the More Arcologies Classes
 generate_pd_ascension_worlds_hive_arc_portrait_effect = {
 	planet = {
 	#Shroud
@@ -1637,7 +1637,7 @@ generate_pd_ascension_worlds_hive_arc_portrait_effect = {
 	}
 }
 
-#This adds the Ascenion World Views to the More Arcologies Classes
+#This adds the Ascension World Views to the More Arcologies Classes
 generate_pd_ascension_worlds_machine_arc_portrait_effect = {
 	planet = {
 	#Shroud

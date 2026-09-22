@@ -8,6 +8,9 @@ has_pd_unique_modifier = {
 		has_modifier = pd_floating
 		has_modifier = pd_crystal
 		has_modifier = pd_biosynth
+		has_modifier = pd_bonefield
+		has_modifier = pd_bonefield_controlled
+		has_modifier = pd_bonefield_warded
 	}
 }
 

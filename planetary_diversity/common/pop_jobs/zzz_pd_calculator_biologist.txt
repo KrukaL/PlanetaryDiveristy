@@ -1,0 +1,319 @@
+calculator_biologist = {
+	category = complex_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_research_lab_1
+			icon = biologist
+		}
+		#Brain Drone Biologist - auth_hive
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_biologist
+			desc = brain_drone_biologist
+			icon = brain_drone_biologist
+			building_icon = building_research_lab_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 2
+		}
+		#Archeo Drone - auth_hive
+		swap_type = {
+			trigger = {
+				exists = owner
+				has_building = building_archaeostudies_faculty
+				owner = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = archaeo_drone
+			desc = archaeo_drone
+			icon = archaeo_drone
+			building_icon = building_archaeostudies_faculty
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 3
+		}
+		#Archeo Drone - auth_machine
+		swap_type = {
+			trigger = {
+				exists = owner
+				has_building = building_archaeostudies_faculty
+				owner = {
+					is_machine_empire = yes
+				}
+			}
+			name = archaeo_unit
+			desc = archaeo_unit
+			icon = archaeo_unit
+			building_icon = building_archaeostudies_faculty
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_biologist
+			desc = evosymbiont
+			icon = brain_drone_biologist
+			building_icon = brain_node_3
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_observator_trigger = yes
+			}
+			name = observator_drone
+			desc = job_observator_drone_desc
+			icon = observator_drone
+			building_icon = building_shroud_observatory_1
+			condition_string = DRONE_JOB_TRIGGER
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_aquifer
+				num_zones = { type = zone_pd_aquifer_lab value > 0 }
+			}
+			name = pd_aquifer_hydrology_scholar_drone
+			desc = job_pd_aquifer_hydrology_scholar_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_biolumen
+				num_zones = { type = zone_pd_biolumen_lab value > 0 }
+			}
+			name = pd_biolumen_lumen_biologist_drone
+			desc = job_pd_biolumen_lumen_biologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_coral
+				num_zones = { type = zone_pd_coral_lab value > 0 }
+			}
+			name = pd_coral_ecologist_drone
+			desc = job_pd_coral_ecologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_cryoflora
+				num_zones = { type = zone_pd_cryoflora_lab value > 0 }
+			}
+			name = pd_cryoflora_cryobotanist_drone
+			desc = job_pd_cryoflora_cryobotanist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_iceberg
+				num_zones = { type = zone_pd_iceberg_lab value > 0 }
+			}
+			name = pd_iceberg_glaciologist_drone
+			desc = job_pd_iceberg_glaciologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lichen
+				num_zones = { type = zone_pd_lichen_lab value > 0 }
+			}
+			name = pd_lichen_symbiosis_scholar_drone
+			desc = job_pd_lichen_symbiosis_scholar_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_megaflora
+				num_zones = { type = zone_pd_megaflora_lab value > 0 }
+			}
+			name = pd_megaflora_canopy_ecologist_drone
+			desc = job_pd_megaflora_canopy_ecologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_lab value > 0 }
+			}
+			name = pd_reef_ecologist_drone
+			desc = job_pd_reef_ecologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_lab value > 0 }
+			}
+			name = pd_sinkhole_cavern_ecologist_drone
+			desc = job_pd_sinkhole_cavern_ecologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_superhabitable = yes
+				num_zones = { type = zone_pd_superhab_lab value > 0 }
+			}
+			name = pd_superhab_biosphere_ecologist_drone
+			desc = job_pd_superhab_biosphere_ecologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_tidally_locked = yes
+				num_zones = { type = zone_pd_tidally_lab value > 0 }
+			}
+			name = pd_tidally_duskbelt_astrobiologist_drone
+			desc = job_pd_tidally_duskbelt_astrobiologist_drone_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+	}
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { can_think = yes }
+
+	resources = {
+		category = planet_biologists
+		produces = {
+			society_research = 3
+		}
+		produces = {
+			trigger = {
+				colony? = {
+					biologist_is_observator_trigger = yes
+				}
+			}
+			physics_research = 4.5
+			society_research = 1.5
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+				colony? = {
+					biologist_is_observator_trigger = no
+				}
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = no }
+				has_carrier_flag = has_science_ministry
+			}
+			energy = 1
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+			}
+			minerals = 4
+		}
+		upkeep = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+				has_carrier_flag = has_science_ministry
+			}
+			minerals = 1.5
+		}
+		upkeep = {
+			trigger = {
+				colony = {
+					biologist_is_observator_trigger = yes
+				}
+			}
+			sr_zro = 1
+		}
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_research
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+				}
+			}
+			society_research = 0.5
+		}
+	}
+
+	# Amenities
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_active_tradition = tr_discovery_faith_in_science }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Caregiver Paragon Effect
+	triggered_planet_modifier = {
+		potential = {
+			leader? = {
+				has_trait = leader_trait_nomadic_caregiver
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 150
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	inline_script = "jobs/academia_recruiter_naval_cap_add"
+
+	inline_script = "jobs/inf_navalcap_jobs"
+
+	weight = {
+		weight = @complex_drone_job_weight
+		mult = value:scripted_job_weight_shroud_forged_mult
+		modifier = {
+			factor = 0.9
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+}

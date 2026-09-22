@@ -1,0 +1,305 @@
+biologist = {
+	category = specialist
+
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_research_lab_1
+		}
+		# Rangers
+		swap_type = {
+			trigger = {
+				biologist_is_ranger_trigger = yes
+			}
+			name = ranger
+			desc = ranger
+			icon = ranger
+			building_icon = holding_park_ranger_lodge
+			weight = 5
+		}
+		# Vent Researchers
+		swap_type = {
+			trigger = {
+				biologist_is_vent_researcher_trigger = yes
+			}
+			name = stratovent_researcher
+			desc = stratovent_researcher
+			icon = xeno_zoo_keeper
+			building_icon = building_nanolab_1
+			weight = 10
+		}
+		# Zookeepers
+		swap_type = {
+			trigger = {
+				biologist_is_zookeeper_trigger = yes
+			}
+			name = xeno_zoo_keeper
+			desc = xeno_zoo_keeper
+			icon = xeno_zoo_keeper
+			building_icon = building_xeno_zoo
+			weight = 15
+		}
+		# Archaeo-Engineers
+		swap_type = {
+			trigger = {
+				biologist_is_archaeo_engineer_trigger = yes
+			}
+			name = archaeoengineers
+			desc = archaeoengineers
+			icon = archaeoengineers
+			building_icon = building_archaeostudies_faculty
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_aquifer
+				num_zones = { type = zone_pd_aquifer_lab value > 0 }
+			}
+			name = pd_aquifer_hydrology_scholar
+			desc = job_pd_aquifer_hydrology_scholar_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_biolumen
+				num_zones = { type = zone_pd_biolumen_lab value > 0 }
+			}
+			name = pd_biolumen_lumen_biologist
+			desc = job_pd_biolumen_lumen_biologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_coral
+				num_zones = { type = zone_pd_coral_lab value > 0 }
+			}
+			name = pd_coral_ecologist
+			desc = job_pd_coral_ecologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_cryoflora
+				num_zones = { type = zone_pd_cryoflora_lab value > 0 }
+			}
+			name = pd_cryoflora_cryobotanist
+			desc = job_pd_cryoflora_cryobotanist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_iceberg
+				num_zones = { type = zone_pd_iceberg_lab value > 0 }
+			}
+			name = pd_iceberg_glaciologist
+			desc = job_pd_iceberg_glaciologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lichen
+				num_zones = { type = zone_pd_lichen_lab value > 0 }
+			}
+			name = pd_lichen_symbiosis_scholar
+			desc = job_pd_lichen_symbiosis_scholar_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_megaflora
+				num_zones = { type = zone_pd_megaflora_lab value > 0 }
+			}
+			name = pd_megaflora_canopy_ecologist
+			desc = job_pd_megaflora_canopy_ecologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_lab value > 0 }
+			}
+			name = pd_reef_ecologist
+			desc = job_pd_reef_ecologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_lab value > 0 }
+			}
+			name = pd_sinkhole_cavern_ecologist
+			desc = job_pd_sinkhole_cavern_ecologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_superhabitable = yes
+				num_zones = { type = zone_pd_superhab_lab value > 0 }
+			}
+			name = pd_superhab_biosphere_ecologist
+			desc = job_pd_superhab_biosphere_ecologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				pd_is_planet_class_tidally_locked = yes
+				num_zones = { type = zone_pd_tidally_lab value > 0 }
+			}
+			name = pd_tidally_duskbelt_astrobiologist
+			desc = job_pd_tidally_duskbelt_astrobiologist_desc
+			icon = biologist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+	}
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		complex_specialist_job_check_trigger = yes
+	}
+
+	inline_script = "jobs/academia_recruiter_naval_cap_add"
+
+	inline_script = "jobs/inf_navalcap_jobs"
+
+	resources = {
+		category = planet_biologists
+		produces = {
+			society_research = 3
+		}
+		produces = {
+			trigger = {
+				biologist_is_zookeeper_trigger = yes
+			}
+			society_research = 0.5
+		}
+		upkeep = {
+			trigger = {
+				biologist_is_zookeeper_trigger = yes
+			}
+			consumer_goods = 0.5
+		}
+		upkeep = {
+			consumer_goods = 1.5
+		}
+		inline_script = "output/researcher_output"
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_research
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+				}
+			}
+			society_research = 0.75
+		}
+	}
+
+	## Amenities
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_active_tradition = tr_discovery_faith_in_science }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Caregiver Paragon Effect
+	triggered_planet_modifier = {
+		potential = {
+			leader? = {
+				has_trait = leader_trait_nomadic_caregiver
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 150
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Job Swap - Rangers
+	triggered_planet_modifier = {
+		potential = {
+			biologist_is_ranger_trigger = yes
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 300
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Job Swap - Vent Researchers
+	triggered_planet_modifier = {
+		potential = {
+			biologist_is_vent_researcher_trigger = yes
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 300
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Job Swap - Zookeepers
+	triggered_planet_modifier = {
+		potential = {
+			biologist_is_zookeeper_trigger = yes
+		}
+		planet_amenities_add = 100
+		mult = value:zoo_keeper_amenity_output
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 2
+			has_living_standard = { type = living_standard_academic_privilege }
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 0.8
+			is_enslaved = yes
+			has_slavery_type = { type = slavery_indentured }
+		}
+		modifier = {
+			factor = 5
+			has_trait = trait_cyborg_creed_of_research
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+}

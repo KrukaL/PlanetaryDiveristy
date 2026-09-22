@@ -83,7 +83,7 @@
  district_pd_flora_hive: "$district_hive$"
  district_pd_flora_hive_desc: "$district_hive_plural$"
  district_pd_flora_hive_plural: "$district_hive_desc$"
- district_pd_flora_hive_industrial: "Industiral District"
+ district_pd_flora_hive_industrial: "Industrial District"
  district_pd_flora_hive_industrial_desc: "Smelting facilities and factories fill this district, creating advanced products out of raw materials"
  district_pd_flora_hive_industrial_plural: "Industrial Districts"
  district_pd_flora_hive_naval: "Logistical District"

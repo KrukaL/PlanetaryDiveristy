@@ -356,7 +356,7 @@
  ap_pd_cryothermal_engineering: "Cryothermal Engineering"
  ap_pd_cryothermal_engineering_desc: "Thriving in cryogenic conditions demands a reinvention of materials, biology, and chemistry. We are pioneering the science of the cold."
 
- # Greyed-out requirement line shown before Terrestrial Sculpting is researched.
+ # Grayed-out requirement line shown before Terrestrial Sculpting is researched.
  requires_technology_tech_terrestrial_sculpting:0 "$TRIGGER_FAIL$Requires the £society£ §Y$tech_terrestrial_sculpting$§! technology."
 
  # Civ-conditional job-efficiency effect lines shown in the AP card; only one renders per empire type.
@@ -492,3 +492,5 @@
  building_pd_nitrogen_munitions_foundry_desc: "The rich nitrate strata of this world are easily worked into explosives and military alloys for our armies."
  building_pd_nitrogen_cryonics_sanctuary: "Nitrogen Cryonics Sanctuary"
  building_pd_nitrogen_cryonics_sanctuary_desc: "The perfectly preserving cold makes this world an ideal sanctuary, drawing clients and tourists from across the stars."
+
+ tankbound_species_class_requirement: "Has a Species Class containing a ['trait:trait_tankbound'] portrait:\n$t$$BULLET_POINT$§Y$AQUATIC$§!\n$t$$BULLET_POINT$§Y$CRYO$§!\n$t$$BULLET_POINT$§Y$INF$§!\n$t$$BULLET_POINT$§Y$NECROID$§!\n$t$$BULLET_POINT$§Y$TOX$§!"

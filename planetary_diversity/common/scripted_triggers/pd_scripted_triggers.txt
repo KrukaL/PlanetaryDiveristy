@@ -383,6 +383,20 @@ pd_is_planet_class_superhabitable = {
 	}
 }
 
+#Every superhabitable class, including the gaia, arc and domed variants.
+#pd_is_planet_class_superhabitable above is the habitable base set only and drives job and zone logic.
+#This one drives the pd_superhabitable_world flag.
+pd_is_planet_class_superhabitable_any = {
+	OR = {
+		pd_is_planet_class_superhabitable = yes
+		is_planet_class = pc_pd_gaia_superhabitable
+		is_planet_class = pc_pd_barren_superhabitable
+		is_planet_class = pc_pd_hive_superhabitable_arc
+		is_planet_class = pc_pd_machine_superhabitable_arc
+		is_planet_class = pc_pd_domed_colony_superhabitable
+	}
+}
+
 pd_is_planet_class_tidally_locked = {
 	OR = {
 		is_planet_class = pc_pd_wet_tidally_locked
@@ -394,6 +408,24 @@ pd_is_planet_class_tidally_locked = {
 	}
 }
 
+#Every tidally locked class, including the gaia, arc, wasteland, necro and domed variants.
+#pd_is_planet_class_tidally_locked above is the habitable base set only and drives job and zone logic.
+#This one drives the pd_tidally_locked_world flag. Exotics adds its domed atmosphere variants in pd_exotic.33.
+pd_is_planet_class_tidally_locked_any = {
+	OR = {
+		pd_is_planet_class_tidally_locked = yes
+		is_planet_class = pc_pd_gaia_tidally_locked
+		is_planet_class = pc_pd_dry_gaia_tidally_locked
+		is_planet_class = pc_pd_cold_gaia_tidally_locked
+		is_planet_class = pc_pd_barren_tidally_locked
+		is_planet_class = pc_pd_hive_tidally_locked_arc
+		is_planet_class = pc_pd_machine_tidally_locked_arc
+		is_planet_class = pc_pd_tidally_wasteland
+		is_planet_class = pc_pd_tidally_necro
+		is_planet_class = pc_pd_domed_colony_tidally_locked
+	}
+}
+
 pd_is_planet_class_cave = {
 	OR = {
 		is_planet_class = pc_pd_wet_cave
@@ -402,6 +434,26 @@ pd_is_planet_class_cave = {
 		is_planet_class = pc_pd_nuked_cave
 		is_planet_class = pc_pd_hive_cave
 		is_planet_class = pc_pd_machine_cave
+	}
+}
+
+#Every cave class, including the gaia, arc, aquatic, shroud, necro, wasteland and domed variants.
+#pd_is_planet_class_cave above is the habitable base set only and drives job and zone logic.
+#This one drives the pd_cave_world flag. Exotics adds its domed atmosphere variants in pd_exotic.33.
+pd_is_planet_class_cave_any = {
+	OR = {
+		pd_is_planet_class_cave = yes
+		is_planet_class = pc_pd_gaia_cave
+		is_planet_class = pc_pd_barren_cave
+		is_planet_class = pc_pd_hive_cave_arc
+		is_planet_class = pc_pd_machine_cave_arc
+		is_planet_class = pc_pd_aquatic_cave
+		is_planet_class = pc_pd_aquatic_shroud_cave
+		is_planet_class = pc_pd_shroud_cave
+		is_planet_class = pc_pd_necro_cave
+		is_planet_class = pc_pd_necro_shroud_cave
+		is_planet_class = pc_pd_wasteland_cave
+		is_planet_class = pc_pd_domed_colony_cave
 	}
 }
 

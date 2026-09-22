@@ -727,7 +727,7 @@ guiTypes = {
 				}
 
 				instantTextBoxType = {
-					name = "arkship_controls"
+					name = "ARKSHIP_CONTROLS"
 					font = "malgun_goth_24"
 					position = { x = 10 y = 1 }
 					text = "ARKSHIP_CONTROLS_CONTROLS"
@@ -780,7 +780,7 @@ guiTypes = {
 						quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 						buttonFont = "cg_16b"
 						clicksound = tab_click
-						text = "Assault Armies"
+						text = "assault_army_plural"
 					}
 
 					buttonType = {
@@ -790,7 +790,7 @@ guiTypes = {
 						quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 						buttonFont = "cg_16b"
 						clicksound = tab_click
-						text = "Shipyard"
+						text = "PV_SHIPYARD"
 					}
 				}
 			}
@@ -3531,7 +3531,7 @@ guiTypes = {
 			clicksound = "tab_click"
 			shortcut = "v"
 			oversound = no_sound
-			pdx_tooltip = "ARKSHIP_BUTTON"
+			pdx_tooltip = "ARKSHIP_CONTROLS_BUTTON"
 		}
 
 		buttonType = {
@@ -4160,6 +4160,7 @@ guiTypes = {
 					name = "pop_job_info"
 					position = { x = 8 y = 376 }
 					size = { width = 294 height = 248 }
+					margin = { top = 5 }
 
 					background = {
 						name = "pop_background"
@@ -4191,7 +4192,7 @@ guiTypes = {
 					}
 
 					instantTextBoxType = {
-						name = "pop_faction"
+						name = "pop_factions"
 						font = "cg_16b"
 						text = "Faction: Peaceful Progress Network"
 						position = { x = 5 y = 36 }
@@ -4203,10 +4204,22 @@ guiTypes = {
 					}
 
 					instantTextBoxType = {
+						name = "wanted_factions"
+						font = "cg_16b"
+						text = "Hoped Faction: Progressist"
+						position = { x = 5 y = 54 }
+						maxWidth = 282
+						maxHeight = 20
+						fixedSize = yes
+						orientation = "UPPER_LEFT"
+						format = left
+					}
+
+					instantTextBoxType = {
 						name = "happiness"
 						font = "cg_16b"
 						text = "Happiness: 50%"
-						position = { x = 5 y = 54 }
+						position = { x = 5 y = 72 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4218,7 +4231,7 @@ guiTypes = {
 						name = "political_power"
 						font = "cg_16b"
 						text = "Political Power: 0.5"
-						position = { x = 5 y = 71 }
+						position = { x = 5 y = 90 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4230,7 +4243,7 @@ guiTypes = {
 						name = "crime"
 						font = "cg_16b"
 						text = "Crime: 1.7"
-						position = { x = 5 y = 89 }
+						position = { x = 5 y = 108 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4242,7 +4255,7 @@ guiTypes = {
 						name = "empire_sprawl"
 						font = "cg_16b"
 						text = "Empire Sprawl: 1"
-						position = { x = 5 y = 107 }
+						position = { x = 5 y = 126 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4254,7 +4267,7 @@ guiTypes = {
 						name = "housing_needs"
 						font = "cg_16b"
 						text = "Housing Needs: 2"
-						position = { x = 5 y = 125 }
+						position = { x = 5 y = 144 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4266,7 +4279,7 @@ guiTypes = {
 						name = "amenities_usage"
 						font = "cg_16b"
 						text = "Amenities Usage: 2"
-						position = { x = 5 y = 143 }
+						position = { x = 5 y = 162 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4278,7 +4291,7 @@ guiTypes = {
 						name = "production"
 						font = "cg_16b"
 						text = "12 minerals"
-						position = { x = 5 y = 161 }
+						position = { x = 5 y = 180 }
 						maxWidth = 260
 						maxHeight = 20
 						fixedSize = yes
@@ -4291,7 +4304,7 @@ guiTypes = {
 						name = "upkeep"
 						font = "cg_16b"
 						text = "5 energy"
-						position = { x = 5 y = 179 }
+						position = { x = 5 y = 198 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4303,7 +4316,7 @@ guiTypes = {
 						name = "overlord_production"
 						font = "cg_16b"
 						text = "12 minerals"
-						position = { x = 5 y = 198 }
+						position = { x = 5 y = 216 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -4315,7 +4328,7 @@ guiTypes = {
 						name = "overlord_upkeep"
 						font = "cg_16b"
 						text = "5 energy"
-						position = { x = 5 y = 215 }
+						position = { x = 5 y = 234 }
 						maxWidth = 282
 						maxHeight = 20
 						fixedSize = yes
@@ -5884,18 +5897,18 @@ guiTypes = {
 			format = left
 		}
 
-		iconType = {
-			name = "faction_icon"
-			quadTextureSprite = "GFX_faction_icon_imperialist"
-			position = { x = 350 y = 11 }
-			scale = 0.6
+		overlappingElementsBoxType = {
+			name = "factions"
+			position = { x = 179 y = 15 }
+			size = { x = 110 y = 30 }
+			format = center
 		}
 
 		overlappingElementsBoxType = {
 			name = "ethics"
-			position = { x = 400 y = 15 }
-			size = { x = 152 y = 16 }
-			format = left
+			position = { x = 295 y = 15 }
+			size = { x = 150 y = 30 }
+			format = center
 		}
 
 		containerWindowType = {

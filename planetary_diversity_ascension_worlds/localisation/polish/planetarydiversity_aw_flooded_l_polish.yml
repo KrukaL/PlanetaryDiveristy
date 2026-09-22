@@ -14,10 +14,11 @@
  decision_pd_aw_unflood_habitat: "Osusz stację mieszkalną"
  decision_pd_aw_unflood_habitat_desc: "Ten habitat ma potencjał, by stać się idealnym domem dla naszego ludu. Dzięki osuszeniu możemy zapewnić rozwój życia przystosowanego do lądu."
  decision_pd_aw_flood_habitat_tooltip: "Możliwość zamieszkania: §R-20%§!\nTraktowany jako świat §Yoceaniczny§! dla gatunków §YAkwatyków§!.\nLód zostanie pozyskany z systemu posiadającego §Y$sm_ice_mining_station$§! w bazie gwiezdnej."
+ ap_hydrocentric_tooltip "Allows the construction of §YIce Mining Stations§! on starbases, which enable the following decisions:\n    - §Y$decision_pd_aw_flood_planet$§!: §Y$pc_ocean$§!, §Y$pc_gaia$§!, §Y$pc_hive$§!, §Y$pc_machine$§!, §Y$pc_relic$§!, §Y$pc_city$§!\n    - §Y$decision_flood_habitat$§!: §Y$pc_habitat$§!\n    - §Y$decision_pd_aw_flood_ringworld$§!: §Y$pc_ringworld_habitable$§!\n§RNo other planet class can be flooded.§!\nSpecies with the §Y$trait_aquatic$§! or §Y$trait_robot_aquatic$§! trait gain 50% greater benefits for living on §YOcean§! worlds, but penalties for living on non-§YWet§! worlds are likewise amplified."
 
  flooded_habitat: "Wodna"
  flooded_habitat_desc: "Pochłonięty przez wodę świat wiernie odzwierciedla idylliczne środowisko mieszkańców oceanicznych głębin."
- pd_aw_flooded_planet_tooltip: "$MOD_PLANET_MAX_DISTRICTS_ADD$: §G+3§!\n$MOD_LOGISTIC_GROWTH_MULT$: §G+10%§!\n$mod_planet_jobs_produces_mult$: §G+5%§!\n§YNie-akwatyczni§! Możliwość zamieszkania: §R-20%§!"
+ pd_aw_flooded_planet_tooltip: "$MOD_PLANET_MAX_DISTRICTS_ADD$: §G+3§!\n$MOD_LOGISTIC_GROWTH_MULT$: §G+10%§!\n$mod_planet_jobs_produces_mult$: §G+5%§!\n§YNie-akwatyczni§! Możliwość zamieszkania: §R-20%§!\n$MOD_PLANET_ORBITAL_BOMBARDMENT_DAMAGE$: §G-10%§!"
 
  pd_aw_flooded_planet: "Świat wodny"
  pd_aw_flooded_planet_desc: "Ta oceaniczna planeta jest idealnym domem dla gatunków wodnych. Życie rozkwita dla tych, którzy przystosowali się do głębin."

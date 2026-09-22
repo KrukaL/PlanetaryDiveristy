@@ -1734,6 +1734,7 @@ pc_habitat = {
 
 pc_cosmogenesis_world = {
 	synaptic_lathe = yes
+	can_be_capital = no
 	entity = "orbital_habitat"
 	icon = GFX_planet_type_synaptic_lathe
 	icon_large = GFX_planet_type_synaptic_lathe_big
@@ -1765,6 +1766,7 @@ pc_cosmogenesis_world = {
 	is_artificial_planet = yes
 	default_planet_selection = yes
 	inherit_country_building_modifiers = no
+	inherit_country_district_modifiers = no
 
 	auto_trait_prio = {
 		trait_auto_pc_cosmogenesis_world_preference

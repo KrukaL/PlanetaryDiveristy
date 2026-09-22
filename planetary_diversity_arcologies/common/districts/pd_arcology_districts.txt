@@ -5,7 +5,6 @@ district_pd_garden_arcology_housing = {
 	exempt_from_ai_planet_specialization = yes
 	overlay_icon = GFX_district_government
 
-	# TODO_CD: change to real slots
 	zone_slots = {
 		slot_city_government
 		slot_pd_garden_arc_01
@@ -327,7 +326,6 @@ district_pd_fortress_arcology_housing = {
 	exempt_from_ai_planet_specialization = yes
 	overlay_icon = GFX_district_government
 
-	# TODO_CD: change to real slots
 	zone_slots = {
 		slot_city_government
 		slot_pd_fortress_arc_01
@@ -666,7 +664,6 @@ district_pd_commercial_arcology_housing = {
 	exempt_from_ai_planet_specialization = yes
 	overlay_icon = GFX_district_government
 
-	# TODO_CD: change to real slots
 	zone_slots = {
 		slot_city_government
 		slot_pd_commercial_arc_01

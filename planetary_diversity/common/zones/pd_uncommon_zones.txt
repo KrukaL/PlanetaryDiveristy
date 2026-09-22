@@ -16,10 +16,26 @@ zone_pd_tidally_grid = {
 	zone_sets = { energy  hive  nexus }
 	included_building_sets = { generator  fallen_empire_generator  generator_automation }
 	convert_to = { zone_energy  zone_energy_nexus  zone_energy_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_tidally_dayside_collector_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_tidally_dayside_collector_drone_add = @scaling_district_1_job }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_technicians_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_technician_energy_produces_add = 3
+	}
 	ai_priority = 5
+
+	triggered_desc = {
+		text = pd_tidally_dayside_collector_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_tidally_dayside_collector_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_tidally_farm = {
 	icon = GFX_district_specialization_food
@@ -36,10 +52,27 @@ zone_pd_tidally_farm = {
 	zone_sets = { food  hive  nexus }
 	included_building_sets = { farming  hydroponics  farming_automation  fallen_empire_farming }
 	convert_to = { zone_food  zone_food_ring_world  zone_food_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_tidally_duskbelt_gardener_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_tidally_duskbelt_gardener_drone_add = @scaling_district_1_job }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_farmers_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_farmers_food_produces_add = 3
+		planet_farmers_energy_produces_add = 2
+	}
 	ai_priority = 5
+
+	triggered_desc = {
+		text = pd_tidally_duskbelt_gardener_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_tidally_duskbelt_gardener_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_tidally_lab = {
 	icon = GFX_district_specialization_research
@@ -55,11 +88,28 @@ zone_pd_tidally_lab = {
 	zone_sets = { urban }
 	included_building_sets = { engineering  research  urban_automation  origin }
 	convert_to = { zone_research_society  zone_research_society_nexus  zone_research_society_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_tidally_duskbelt_astrobiologist_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_tidally_duskbelt_astrobiologist_drone_add = @scaling_district_1_job }
 	inline_script = { script = zones/shared_research_zone_modifiers }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_biologists_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_biologists_society_research_produces_add = 0.5
+		planet_biologists_physics_research_produces_add = 1
+	}
 	ai_priority = 15
+
+	triggered_desc = {
+		text = pd_tidally_duskbelt_astrobiologist_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_tidally_duskbelt_astrobiologist_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 
 # ===== Cave / Karst =====
@@ -77,10 +127,27 @@ zone_pd_cave_grid = {
 	zone_sets = { energy  hive  nexus }
 	included_building_sets = { generator  fallen_empire_generator  generator_automation }
 	convert_to = { zone_energy  zone_energy_nexus  zone_energy_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_cave_deepvent_technician_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_cave_deepvent_technician_drone_add = @scaling_district_1_job }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_technicians_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_technician_energy_produces_add = 2
+		planet_technician_minerals_produces_add = 2
+	}
 	ai_priority = 5
+
+	triggered_desc = {
+		text = pd_cave_deepvent_technician_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_cave_deepvent_technician_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_cave_mine = {
 	icon = GFX_district_specialization_minerals
@@ -96,10 +163,27 @@ zone_pd_cave_mine = {
 	zone_sets = { minerals  hive  nexus }
 	included_building_sets = { mining  fallen_empire_mining  mining_automation }
 	convert_to = { zone_minerals  zone_minerals_nexus  zone_minerals_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_cave_karst_delver_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_cave_karst_delver_drone_add = @scaling_district_1_job }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_miner_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_miners_minerals_produces_add = 2
+		planet_miners_food_produces_add = 2
+	}
 	ai_priority = 5
+
+	triggered_desc = {
+		text = pd_cave_karst_delver_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_cave_karst_delver_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_cave_lab = {
 	icon = GFX_district_specialization_research
@@ -115,11 +199,28 @@ zone_pd_cave_lab = {
 	zone_sets = { urban }
 	included_building_sets = { engineering  research  urban_automation  origin }
 	convert_to = { zone_research_engineering  zone_research_engineering_nexus  zone_research_engineering_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_cave_speleo_engineer_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_cave_speleo_engineer_drone_add = @scaling_district_1_job }
 	inline_script = { script = zones/shared_research_zone_modifiers }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_engineers_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_engineers_engineering_research_produces_add = 1.5
+		planet_engineers_energy_produces_add = 2
+	}
 	ai_priority = 15
+
+	triggered_desc = {
+		text = pd_cave_speleo_engineer_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_cave_speleo_engineer_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 
 # ===== Superhabitable =====
@@ -137,11 +238,28 @@ zone_pd_superhab_lab = {
 	zone_sets = { urban }
 	included_building_sets = { engineering  research  urban_automation  origin }
 	convert_to = { zone_research_society  zone_research_society_nexus  zone_research_society_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_superhab_biosphere_ecologist_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_superhab_biosphere_ecologist_drone_add = @scaling_district_1_job }
 	inline_script = { script = zones/shared_research_zone_modifiers }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_biologists_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_biologists_society_research_produces_add = 1.5
+		planet_biologists_food_produces_add = 2
+	}
 	ai_priority = 15
+
+	triggered_desc = {
+		text = pd_superhab_biosphere_ecologist_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_superhab_biosphere_ecologist_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_superhab_farm = {
 	icon = GFX_district_specialization_food
@@ -158,10 +276,31 @@ zone_pd_superhab_farm = {
 	zone_sets = { food  hive  nexus }
 	included_building_sets = { farming  hydroponics  farming_automation  fallen_empire_farming }
 	convert_to = { zone_food  zone_food_ring_world  zone_food_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_superhab_abundance_cultivator_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_superhab_abundance_cultivator_drone_add = @scaling_district_1_job }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_farmers_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	triggered_district_planet_modifier = {
+		potential = { exists = owner  owner = { is_gestalt = no } }
+		planet_amenities_add = 625
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_farmers_food_produces_add = 3
+	}
 	ai_priority = 5
+
+	triggered_desc = {
+		text = pd_superhab_abundance_cultivator_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_superhab_abundance_cultivator_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }
 zone_pd_superhab_foundry = {
 	icon = GFX_district_specialization_foundry
@@ -178,10 +317,27 @@ zone_pd_superhab_foundry = {
 	zone_sets = { urban }
 	included_building_sets = { foundry  urban_automation  origin }
 	convert_to = { zone_foundry  zone_foundry_nexus  zone_foundry_hive }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = no } }  job_pd_superhab_gravitic_forgewright_add = @scaling_district_1_job }
-	triggered_district_planet_modifier = { potential = { exists = owner  owner = { is_gestalt = yes } }  job_pd_superhab_gravitic_forgewright_drone_add = @scaling_district_1_job }
 	inline_script = { script = zones/shared_city_non_urban_zone_modifiers }
-	planet_modifier = { zone_building_slots_add = 3 }
+	inline_script = {
+		script = jobs/zone_foundry_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_metallurgists_alloys_produces_add = 2.25
+		planet_metallurgists_physics_research_produces_add = 0.25
+	}
 	ai_weight_coefficient = 1.2
 	ai_priority = 10
+
+	triggered_desc = {
+		text = pd_superhab_gravitic_forgewright_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = no } }
+	}
+
+	triggered_desc = {
+		text = pd_superhab_gravitic_forgewright_drone_swap_tt
+		trigger = { exists = owner  owner = { is_gestalt = yes } }
+	}
 }

@@ -533,3 +533,215 @@ pd_init_biosynth = {
 		}
 	}
 }
+
+#Bonefield Planet
+# The Bonefield is a moon of the second gas giant. Orbit distances ahead of that giant are fixed so the belt radius matches its lane (0+50+40+35 = 125).
+pd_init_bonefield = {
+	name = "NAME_Tiyun_Sha"
+	class = "sc_k"
+	#usage = misc_system_init
+	asteroid_belt = {
+		type = pd_tiyanki_bonefield_belt
+		radius = 125
+	}
+	max_instances = 1
+	spawn_chance = 0
+	usage_odds = {
+		base = 100
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+			factor = 0
+			has_star_flag = empire_cluster
+		}
+		modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+	}
+	flags = { pd_bonefield_system natural_spectacle_system }	# natural_spectacle_system registers this as a Wanderlust (Nomads AP) exploration target
+	init_effect = {
+		if = {
+			limit = {
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				radius = 20
+			}
+			set_star_flag = pd_unique_nebula
+		}
+	}
+	planet = {
+		count = 1
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	planet = {
+		count = 1
+		class = random_non_colonizable
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+	}
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 25 max = 30 }
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_carrier_flag = pd_bonefield_giant1
+			save_event_target_as = pd_bonefield_giant1
+		}
+		moon = {
+			count = { min = 0 max = 2 }
+			orbit_distance = 5
+		}
+	}
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 25 max = 30 }
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_carrier_flag = pd_bonefield_giant2
+			save_event_target_as = pd_bonefield_giant2
+		}
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_distance = 6
+		}
+		moon = {
+			count = 1
+			class = "pc_arid"
+			orbit_distance = 14
+			orbit_angle = 85
+			size = { min = 20 max = 23 }
+			has_ring = no
+			modifiers = none
+
+			init_effect = {
+				set_planet_flag = pd_bonefield_planet
+				set_carrier_flag = pd_bonefield_planet
+				set_planet_flag = shroud_storm_changed
+				set_carrier_flag = colony_event
+				set_planet_flag = pd_ignore
+				set_planet_flag = legendary_leader_planet
+				set_planet_flag = pd_unique_cant_terraform
+				set_planet_flag = pd_unique_world
+				prevent_anomaly = yes
+				save_event_target_as = bonefield_planet
+				add_modifier = {
+					modifier = pd_bonefield
+					days = -1
+				}
+				clear_blockers = yes
+				clear_deposits = yes
+				set_planet_entity = {
+					picture = pc_pd_bonefield
+					entity = pd_bonefield_planet_01_entity
+				}
+				add_deposit = d_prosperous_mesa
+				add_deposit = d_rich_mountain
+				add_deposit = d_veiny_cliffs
+				add_deposit = d_black_soil
+				add_deposit = d_rugged_woods
+				add_deposit = d_hot_springs
+				add_deposit = d_tempestous_mountain
+				add_deposit = d_pd_bonefield_fallen_giants
+				add_deposit = d_pd_bonefield_bone_cathedrals
+				set_variable = {
+					which = pd_bonefield_corpses
+					value = 6
+				}
+				while = {
+					count = 6
+					create_ambient_object = {
+						type = "small_dead_tiyanki_object"
+						location = this
+						use_3d_location = yes
+						entity_offset_angle = { min = 0 max = 360 }
+						entity_offset = { min = 8 max = 15 }
+						entity_offset_height = { min = -4 max = 4 }
+					}
+				}
+			}
+		}
+	}
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 22 max = 30 }
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_carrier_flag = pd_bonefield_giant3
+			save_event_target_as = pd_bonefield_giant3
+		}
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_distance = 6
+		}
+	}
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 22 max = 30 }
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_carrier_flag = pd_bonefield_giant4
+			save_event_target_as = pd_bonefield_giant4
+		}
+		moon = {
+			count = { min = 0 max = 3 }
+			class = random_non_colonizable
+			orbit_distance = 6
+		}
+	}
+	planet = {
+		count = 1
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 22 max = 30 }
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_carrier_flag = pd_bonefield_giant5
+			save_event_target_as = pd_bonefield_giant5
+			pd_create_bonefield_tiyanki_country_effect = yes
+			pd_create_bonefield_tiyanki_herd_effect = yes
+		}
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_distance = 6
+		}
+	}
+	planet = {
+		count = { min = 3 max = 4 }
+		class = random_non_colonizable
+		orbit_distance = 40
+		change_orbit = 10
+		moon = {
+			count = { min = 0 max = 2 }
+			orbit_distance = 5
+		}
+	}
+}

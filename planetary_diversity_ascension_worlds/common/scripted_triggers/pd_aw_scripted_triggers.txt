@@ -125,6 +125,7 @@ pd_can_terraform_planet = {
 
 pd_can_take_ap_pd_wasteland_worlds = {
 	OR = {
+		is_species_class = TOX
 		has_civic = civic_relentless_industrialists
 		has_civic = civic_corporate_relentless_industrialists
 		has_civic = civic_toxic_baths

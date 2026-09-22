@@ -1,0 +1,147 @@
+artisan_drone = {
+	category = complex_drone
+
+	swappable_data = {
+		default = {
+			condition_string = DRONE_JOB_TRIGGER
+			building_icon = building_factory_1
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_coral
+				num_zones = { type = zone_pd_coral_guild value > 0 }
+			}
+			name = pd_coral_dye_artisan_drone
+			desc = job_pd_coral_dye_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_cryoflora
+				num_zones = { type = zone_pd_cryoflora_guild value > 0 }
+			}
+			name = pd_cryoflora_frostsilk_artisan_drone
+			desc = job_pd_cryoflora_frostsilk_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_guild value > 0 }
+			}
+			name = pd_lanthanide_phosphor_artisan_drone
+			desc = job_pd_lanthanide_phosphor_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_petrified
+				num_zones = { type = zone_pd_petrified_guild value > 0 }
+			}
+			name = pd_petrified_amber_artisan_drone
+			desc = job_pd_petrified_amber_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_reef
+				num_zones = { type = zone_pd_reef_guild value > 0 }
+			}
+			name = pd_reef_nacre_artisan_drone
+			desc = job_pd_reef_nacre_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_sinkhole
+				num_zones = { type = zone_pd_sinkhole_guild value > 0 }
+			}
+			name = pd_sinkhole_speleothem_artisan_drone
+			desc = job_pd_sinkhole_speleothem_artisan_drone_desc
+			icon = artisan
+			building_icon = building_factory_1
+			weight = 200
+		}
+	}
+
+	tags = { consumer_goods }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	possible = { can_think = yes }
+
+	resources = {
+		category = planet_artisans
+		produces = {
+			consumer_goods = 10
+		}
+
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = no
+			}
+			minerals = 10
+		}
+
+		upkeep = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+			}
+			food = 15
+		}
+
+		produces = {
+			trigger = {
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
+			}
+			consumer_goods = @requisitorium_consumer_goods_reduction
+		}
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_consumer_goods
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_produce_requisitorium
+					exists = owner.overlord
+					owner.overlord = { country_uses_consumer_goods = yes }
+				}
+			}
+			consumer_goods = @requisitorium_consumer_goods_overlord
+		}
+	}
+
+	weight = {
+		weight = @complex_drone_job_weight
+		mult = value:scripted_job_weight_shroud_forged_mult
+		modifier = {
+			factor = 0.9
+			exists = owner
+			years_passed < 1
+			owner = { has_valid_civic = civic_machine_assimilator }
+			has_trait = trait_cybernetic
+		}
+	}
+
+}

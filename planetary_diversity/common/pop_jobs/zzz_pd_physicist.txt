@@ -1,0 +1,272 @@
+physicist = {
+	category = specialist
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_research_lab_1
+		}
+		# Astrometeorologists
+		swap_type = {
+			trigger = {
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist
+			desc = astrometeorologist
+			icon = astrometeorologist
+			building_icon = building_astrometeorology_observation_center
+			condition_string = SPECIALIST_JOB_TRIGGER
+			weight = 5
+		}
+		# Astral Researcher
+		swap_type = {
+			trigger = {
+				physicist_is_astral_researcher_trigger = yes
+			}
+			name = astral_researcher
+			desc = astral_researcher
+			icon = astral_researcher
+			building_icon = building_astral_siphon_1
+			weight = 5
+		}
+		# Space-Time Anomaly Researcher
+		swap_type = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+			}
+			name = space_time_anomaly_researcher
+			desc = space_time_anomaly_researcher
+			weight = 10
+		}
+		# Dimension Portal Researcher
+		swap_type = {
+			trigger = {
+				physicist_is_dimensional_portal_researcher_trigger = yes
+			}
+			name = dimensional_portal_researcher
+			desc = dimensional_portal_researcher
+			weight = 15
+		}
+		# Astral-Meteorologists
+		swap_type = {
+			trigger = {
+				physicist_is_astral_researcher_trigger = yes
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astral_meteorologist
+			desc = astral_meteorologist
+			icon = astrometeorologist
+			building_icon = building_astral_siphon_1
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_lanthanide
+				num_zones = { type = zone_pd_lanthanide_lab value > 0 }
+			}
+			name = pd_lanthanide_rare_earth_physicist
+			desc = job_pd_lanthanide_rare_earth_physicist_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_storm
+				num_zones = { type = zone_pd_storm_lab value > 0 }
+			}
+			name = pd_storm_physicist
+			desc = job_pd_storm_physicist_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				has_modifier = pd_supercontinent
+				num_zones = { type = zone_pd_supercontinent_lab value > 0 }
+			}
+			name = pd_supercontinent_tectonics_scholar
+			desc = job_pd_supercontinent_tectonics_scholar_desc
+			icon = physicist
+			building_icon = building_research_lab_1
+			weight = 200
+		}
+	}
+
+	tags = { research }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		complex_specialist_job_check_trigger = yes
+	}
+
+	inline_script = "jobs/academia_recruiter_naval_cap_add"
+
+	inline_script = "jobs/inf_navalcap_jobs"
+
+	resources = {
+		category = planet_physicists
+		produces = {
+			physics_research = 3
+		}
+		# Astrometeorologists
+		produces = {
+			trigger = {
+				colony? = {
+					physicist_is_astrometeorologist_trigger = yes
+					solar_system? = {
+						OR = {
+							has_environmental_effects = yes
+							has_star_flag = storm_system
+						}
+					}
+				}
+			}
+			physics_research = 2
+		}
+		upkeep = {
+			consumer_goods = 1.5
+		}
+		# Space-Time Researcher
+		produces = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+			}
+			physics_research = 1
+			sr_dark_matter = 0.2
+		}
+		upkeep = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+			}
+			consumer_goods = 1.5
+		}
+		inline_script = "output/researcher_output"
+	}
+
+	overlord_resources = {
+		category = planet_requisitioned_research
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+				}
+			}
+			physics_research = 0.75
+		}
+		produces = {
+			trigger = {
+				colony = {
+					has_carrier_flag = has_science_ministry
+					physicist_is_astrometeorologist_trigger = yes
+					solar_system? = {
+						OR = {
+							has_environmental_effects = yes
+							has_star_flag = storm_system
+						}
+					}
+				}
+			}
+			physics_research = 0.5
+		}
+	}
+
+	## Amenities
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_active_tradition = tr_discovery_faith_in_science }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Caregiver Paragon Effect
+	triggered_planet_modifier = {
+		potential = {
+			leader? = {
+				has_trait = leader_trait_nomadic_caregiver
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 150
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	# Dimensional Portal Amenities
+	triggered_planet_modifier = {
+		potential = {
+			colony? = {
+				has_modifier = dportal_trade_normal
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 600
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			colony? = {
+				has_modifier = dportal_trade_high
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 1200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			colony? = {
+				has_modifier = dportal_trade_low
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 300
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			colony? = {
+				has_modifier = dportal_trade_crisis
+			}
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 2
+			has_living_standard = { type = living_standard_academic_privilege }
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 0.8
+			is_enslaved = yes
+			has_slavery_type = { type = slavery_indentured }
+		}
+		modifier = {
+			factor = 5
+			has_trait = trait_cyborg_creed_of_research
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+}

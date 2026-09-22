@@ -14,7 +14,7 @@ country_event = {
 	}
 	option = {
 		name = terra.40.b
-		from = { set_planet_flag = tidally_locked_world }
+		from = { set_carrier_flag = tidally_locked_world }
 		custom_tooltip = terra.40.b.tooltip
 		from = {
 			if = {

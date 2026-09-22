@@ -1,4 +1,4 @@
-#Unihabitable Worlds
+#Uninhabitable Worlds
 pd_diamond = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_pd_diamond.dds"
 	icon_frame = 1
