@@ -19,6 +19,6 @@
  MESSAGE_PD_AW_WASTELAND_MESSAGE_TYPE_TITLE: "已废除环境法规"
  MESSAGE_PD_AW_WASTELAND_CLEANUP_DESC:1 "$PLANET|Y$的生态系统已经修复完成。"
  MESSAGE_PD_AW_WASTELAND_CLEANUP_MESSAGE_TYPE_TITLE: "重新采纳环境法规"
- concept_pd_toxoid_empire: "毒物类帝国"
- concept_pd_toxoid_empires: "毒物类帝国"
+ concept_pd_toxoid_empire: "毒物帝国"
+ concept_pd_toxoid_empires: "毒物帝国"
  concept_pd_toxoid_empire_desc: "$concept_pd_toxoid_empire$是具有以下特性的帝国：\n—$TOX$$SPECIES_CLASS$$NEW_LINE$—['civic:civic_relentless_industrialists']$NEW_LINE$—['civic:civic_corporate_relentless_industrialists']$NEW_LINE$—['civic:civic_toxic_baths']$NEW_LINE$—['civic:civic_hive_toxic_baths']$NEW_LINE$—['civic:civic_machine_toxic_baths']$NEW_LINE$—['civic:civic_corporate_toxic_baths']$NEW_LINE$—['civic:origin_overtuned']"
